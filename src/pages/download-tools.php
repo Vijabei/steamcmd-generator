@@ -1,12 +1,13 @@
 <?php
-define('PAGE_SCRIPTS', ['/js/form.js']); 
+define('PAGE_SCRIPTS', ['/js/feedback.js']); 
 include '../includes/header.php';
 ?>
 
-<div class="download-guide" itemscope itemtype="https://schema.org/HowTo">
-    <h1 itemprop="name">Download Steam Workshop Collections</h1>
+<div class="download-tools" itemscope itemtype="https://schema.org/SoftwareApplication">
+    <h1 itemprop="name">Workshop Download Tools</h1>
+    <p class="lead">Choose the tool that best fits your needs</p>
 
-    <!-- New Workshop Manager Section -->
+    <!-- Workshop Manager Section -->
     <div class="card" id="workshop-manager">
         <h2>Workshop Manager Tool</h2>
         <p>Simplify your mod management with our new graphical Workshop Manager tool:</p>
@@ -23,10 +24,6 @@ include '../includes/header.php';
                 <h3>Progress Tracking</h3>
                 <p>Monitor download and installation progress in real-time</p>
             </div>
-            <div class="feature">
-                <h3>Open Source</h3>
-                <p>The code ist already on GitHub. The repository is still private and wil changed to public when an acceptable code base is ready.</p>
-            </div>
         </div>
         <div class="download-section">
             <a href="../downloads/WorkshopManager.zip" class="btn">
@@ -41,37 +38,18 @@ include '../includes/header.php';
         </div>
     </div>
     
+    <!-- TamperMonkey Section -->
     <div class="card">
+        <h2>TamperMonkey Script</h2>
+        <p>Enhance Steam Workshop pages with direct command generation:</p>
+        
         <button id="openTampermonkeyPopup" class="btn mb-6 flex items-center justify-center mx-auto gap-2">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                 <polyline points="13 2 13 9 20 9"></polyline>
             </svg>
-            Available as TamperMonkey Script with additional features
+            Learn More About TamperMonkey Integration
         </button>
-    </div>
-    
-    <div class="card">
-        <form id="collectionForm" class="form-group">
-            <label for="collectionURL">Enter Steam Workshop Collection URL:</label>
-            <input type="text" id="collectionURL" name="collectionURL" required 
-                   placeholder="https://steamcommunity.com/sharedfiles/filedetails/?id=...">
-            <div id="infoFeedback" class="feedback-info"></div>
-            <div id="errorFeedback" class="feedback-error"></div>
-            <button type="submit" class="btn">Generate Commands</button>
-        </form>
-    </div>
-
-    <div id="extractedModIdsAndCommands" class="card" style="display: none;">
-        <h2>Generated Commands</h2>
-        <div class="form-group">
-            <label>Command list:</label>
-            <textarea id="downloadCommands" readonly rows="10"></textarea>
-        </div>
-        <div class="button-group">
-            <button class="btn">Download SteamCMD commands file</button>
-            <button class="btn">Copy to Clipboard</button>
-        </div>
     </div>
 </div>
 
