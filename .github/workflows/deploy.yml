@@ -19,17 +19,17 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./src/     # Inhalt von src/ wird auf den Server kopiert
-        server-dir: /www/vijabei/test/  # Hier deinen FTP-Pfad einsetzen
+        local-dir: ./src/     # Content of src/ will be copied to the server
+        server-dir: /www/vijabei/test/  # Insert your FTP path here
         dangerous-clean-slate: false
         exclude: |
-        **/downloads/**
-        **/feedback/**
-        **/legacy/**
-        **/logs/**
-        **/*.log
-        **/clickcounter-*.txt
-        **/collection_logs.txt
-        **/user_interactions.log
-        google*.html
-        **/*.zip
+          **/downloads/**
+          **/feedback/**
+          **/legacy/**
+          **/logs/**
+          **/*.log
+          **/clickcounter-*.txt
+          **/collection_logs.txt
+          **/user_interactions.log
+          google*.html
+          **/*.zip
