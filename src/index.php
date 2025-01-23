@@ -2,11 +2,14 @@
 
 <div class="hero">
     <h1>Steam Workshop Collection Downloader</h1>
-    <p class="lead">Download complete mod collections easily with SteamCMD</p>
-    <a href="./pages/collection-download.php" class="btn">Start Download</a>
+    <p class="lead">Generate commands and download complete mod collections easily with SteamCMD</p>
+    <div class="button-group">
+        <a href="./pages/generate-commands.php" class="btn">Generate Commands</a>
+        <a href="./pages/download-tools.php" class="btn btn-secondary">Download Tools</a>
+    </div>
 </div>
 
-<!-- New Workshop Manager Announcement -->
+<!-- Workshop Manager Announcement -->
 <div class="card announcement">
     <h2>NEW: Workshop Manager Tool</h2>
     <p>We're excited to introduce our new Workshop Manager - a graphical tool that makes downloading and managing your Steam Workshop mods even easier!</p>
@@ -17,8 +20,8 @@
         <li>Easy path configuration for SteamCMD and target directories</li>
     </ul>
     <div class="button-group">
-        <a href="./downloads/WorkshopManager.zip" class="btn">Download Workshop Manager</a>
-        <a href="./pages/collection-download.php#workshop-manager" class="btn btn-secondary">Learn More</a>
+        <a href="./pages/download-tools.php#workshop-manager" class="btn">Get Workshop Manager</a>
+        <a href="./pages/setup-guide.php" class="btn btn-secondary">Learn More</a>
     </div>
 </div>
 
@@ -37,9 +40,9 @@
         <h2>Quick Start</h2>
         <ol class="quick-start">
             <li>Copy your Steam Workshop Collection URL</li>
-            <li>Paste the URL and generate commands</li>
-            <li>Download the SteamCMD command file</li>
-            <li>Use with SteamCMD to download all mods</li>
+            <li>Generate SteamCMD commands</li>
+            <li>Use Workshop Manager or SteamCMD to download mods</li>
+            <li>Install mods in your game directory</li>
         </ol>
     </div>
 </div>
