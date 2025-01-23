@@ -39,37 +39,45 @@ include '../includes/header.php';
     </div>
     
     <!-- TamperMonkey Section -->
-    <div class="card">
-        <h2>TamperMonkey Script</h2>
-        <p>Enhance Steam Workshop pages with direct command generation:</p>
-        
-        <button id="openTampermonkeyPopup" class="btn mb-6 flex items-center justify-center mx-auto gap-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                <polyline points="13 2 13 9 20 9"></polyline>
-            </svg>
-            Learn More About TamperMonkey Integration
-        </button>
-    </div>
+<div class="card">
+    <h2>TamperMonkey Script</h2>
+    <p>Enhance Steam Workshop pages with direct command generation:</p>
+    
+    <!-- Direct Install Button -->
+    <a href="/downloads/collection-downloader.user.js" class="btn mb-6 flex items-center justify-center mx-auto gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+        Install TamperMonkey Script
+    </a>
+    <p class="text-center text-sm mb-4">(Will automatically open TamperMonkey for installation if you have it installed)</p>
+    
+    <!-- More Info Button -->
+    <button id="openTampermonkeyPopup" class="btn btn-secondary">
+        Learn More About Features
+    </button>
 </div>
 
 <!-- TamperMonkey Scripts Popup -->
 <div id="tampermonkeyPopup" class="feedback-popup">
     <div class="feedback-popup-content">
         <span class="close-button">&times;</span>
-        <h2>TamperMonkey Script</h2>
+        <h2>TamperMonkey Script Features</h2>
         
-        <!-- Combined Script -->
+        <!-- Script Features -->
         <div class="form-group">
-            <h4>Steam Workshop Downloader Script</h4>
+            <h4>What This Script Does</h4>
             <p>This script adds convenient download functionality to:</p>
             <ul class="feature-list mb-4">
                 <li>Steam Workshop collection pages</li>
                 <li>Your personal Workshop subscriptions page</li>
             </ul>
             <p class="mb-4">The script will automatically add a "Generate Download Commands" button to these pages.</p>
+            
+            <!-- Direct Install Button in Popup -->
             <a href="/downloads/collection-downloader.user.js" 
-               class="btn">Download Script</a>
+               class="btn">Install Script Now</a>
         </div>
 
         <!-- Requirements & Info -->
@@ -79,8 +87,17 @@ include '../includes/header.php';
                 <li>TamperMonkey browser extension installed</li>
                 <li>Steam Workshop account (for personal subscriptions)</li>
             </ul>
-            <a href="faq.php#tampermonkey-scripts" class="btn">
-                Learn more in our FAQ
+            
+            <h4>Installation Steps</h4>
+            <ol class="mb-4">
+                <li>Install the TamperMonkey browser extension if you haven't already</li>
+                <li>Click the "Install Script" button above</li>
+                <li>TamperMonkey will automatically open the installation page</li>
+                <li>Click "Install" in TamperMonkey to complete the installation</li>
+            </ol>
+            
+            <a href="faq.php#tampermonkey-scripts" class="btn btn-secondary">
+                View FAQ & Troubleshooting
             </a>
         </div>
     </div>
