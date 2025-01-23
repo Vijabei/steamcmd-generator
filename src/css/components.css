@@ -339,4 +339,54 @@ textarea#downloadCommands {
     background-color: var(--primary-light);
     color: var(--primary-color);
 }
-Last edited vor 9 Minute
+
+/* Option Container Styles */
+.options-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.option-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.option-divider {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-weight: 500;
+    position: relative;
+}
+
+.option-divider span {
+    background: var(--bg-color);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.option-item .icon {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .options-container {
+        flex-direction: column;
+    }
+
+    .option-divider {
+        padding: var(--spacing-md) 0;
+    }
+}

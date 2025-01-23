@@ -38,69 +38,29 @@ include '../includes/header.php';
         </div>
     </div>
     
-    <!-- TamperMonkey Section -->
+<!-- TamperMonkey Section -->
 <div class="card">
     <h2>TamperMonkey Script</h2>
-    <p>Enhance Steam Workshop pages with direct command generation:</p>
+    <p class="mb-6">Enhance Steam Workshop pages with direct command generation capability.</p>
     
-    <!-- Direct Install Button -->
-    <a href="/downloads/collection-downloader.user.js" class="btn mb-6 flex items-center justify-center mx-auto gap-2">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-            <polyline points="13 2 13 9 20 9"></polyline>
-        </svg>
-        Install TamperMonkey Script
-    </a>
-    <p class="text-center text-sm mb-4">(Will automatically open TamperMonkey for installation if you have it installed)</p>
-    
-    <!-- More Info Button -->
-    <button id="openTampermonkeyPopup" class="btn btn-secondary">
-        Learn More About Features
-    </button>
-</div>
-
-<!-- TamperMonkey Scripts Popup -->
-<div id="tampermonkeyPopup" class="feedback-popup">
-    <div class="feedback-popup-content">
-        <span class="close-button">&times;</span>
-        <h2>TamperMonkey Script Features</h2>
+    <div class="tampermonkey-actions flex flex-col items-center gap-4">
+        <!-- Direct Install Button -->
+        <a href="/downloads/collection-downloader.user.js" class="btn w-full max-w-md flex items-center justify-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+            </svg>
+            Install TamperMonkey Script
+        </a>
+        <p class="text-sm text-center">Will automatically open TamperMonkey for installation</p>
         
-        <!-- Script Features -->
-        <div class="form-group">
-            <h4>What This Script Does</h4>
-            <p>This script adds convenient download functionality to:</p>
-            <ul class="feature-list mb-4">
-                <li>Steam Workshop collection pages</li>
-                <li>Your personal Workshop subscriptions page</li>
-            </ul>
-            <p class="mb-4">The script will automatically add a "Generate Download Commands" button to these pages.</p>
-            
-            <!-- Direct Install Button in Popup -->
-            <a href="/downloads/collection-downloader.user.js" 
-               class="btn">Install Script Now</a>
-        </div>
-
-        <!-- Requirements & Info -->
-        <div class="form-group mt-6">
-            <h4>Requirements</h4>
-            <ul class="mb-4">
-                <li>TamperMonkey browser extension installed</li>
-                <li>Steam Workshop account (for personal subscriptions)</li>
-            </ul>
-            
-            <h4>Installation Steps</h4>
-            <ol class="mb-4">
-                <li>Install the TamperMonkey browser extension if you haven't already</li>
-                <li>Click the "Install Script" button above</li>
-                <li>TamperMonkey will automatically open the installation page</li>
-                <li>Click "Install" in TamperMonkey to complete the installation</li>
-            </ol>
-            
-            <a href="faq.php#tampermonkey-scripts" class="btn btn-secondary">
-                View FAQ & Troubleshooting
-            </a>
+        <div class="flex gap-4 mt-4">
+            <a href="guide.php#tampermonkey" class="btn btn-secondary">Guide</a>
+            <a href="faq.php#tampermonkey" class="btn btn-secondary">FAQ</a>
         </div>
     </div>
 </div>
+
+<!-- TamperMonkey Scripts Popup - Removed as functionality moved to guide page -->
 
 <?php include '../includes/footer.php'; ?>
