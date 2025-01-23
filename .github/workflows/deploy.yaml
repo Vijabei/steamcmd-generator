@@ -1,0 +1,22 @@
+name: Deploy to Test Server
+   
+on:
+  push:
+    branches:
+      - feature/split-collection-download
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Code
+      uses: actions/checkout@v2
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /www/vijabei/test/  # Hier deinen FTP-Pfad einsetzen

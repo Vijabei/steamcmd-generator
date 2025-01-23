@@ -1,0 +1,12 @@
+How do I use this tool?
+<p>Follow these steps to use our tool:</p>
+<ol>
+    <li>Copy your Steam Workshop collection URL</li>
+    <li>Paste it into our tool</li>
+    <li>Click "Generate Commands"</li>
+    <li>Download the generated command file</li>
+    <li>Use it with SteamCMD</li>
+</ol>
+<br>
+<p>For detailed instructions, check our <a href="server-setup.php">server setup guide</a></p>
+<p>And/or have a look into <a href="https://developer.valvesoftware.com/wiki/SteamCMD#Automating_SteamCMD">this official documentation</a> until I have rewritten the guide and FAQ sections. #rr I recommend to visit the official guide</p>

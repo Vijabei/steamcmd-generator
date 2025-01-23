@@ -1,0 +1,30 @@
+# Logs
+src/logs/*
+*.log
+
+# Environment
+src/.env
+src/config.local.php
+
+# IDE
+.vscode/
+.idea/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Sensitive Configuration
+src/config.php
+
+# Legacy Webpage
+src/legacy/*
+
+# Google Auth
+src/google*.html
+
+# Feedback
+src/feedback/*
+
+# Downloads
+src/downloads/*

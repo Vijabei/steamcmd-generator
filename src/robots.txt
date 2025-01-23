@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /css/
+Allow: /js/
+Disallow: /logs/
+Disallow: /includes/
+Disallow: /feedback.php
+Disallow: /legacy/
+Disallow: /downloads/
+
+# Sitemaps
+Sitemap: https://softknight.de/sitemap.xml

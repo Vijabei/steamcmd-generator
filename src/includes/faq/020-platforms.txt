@@ -1,0 +1,10 @@
+For which platforms does it work?
+<p>Our tool works with multiple platforms:</p>
+<ul>
+    <li>EPIC Games Store</li>
+    <li>GOG.com</li>
+    <li>Dedicated game servers (rented or self-hosted)</li>
+    <li>Any platform supporting SteamCMD integration</li>
+</ul>
+<br>
+It's particularly useful for platforms where you own the game but want to use Steam Workshop mods.
