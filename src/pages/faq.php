@@ -1,5 +1,4 @@
 <?php
-// Datei: faq.php
 define('PAGE_SCRIPTS', ['/js/feedback.js']);
 include '../includes/header.php';
 

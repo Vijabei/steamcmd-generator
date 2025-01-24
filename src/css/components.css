@@ -390,3 +390,156 @@ textarea#downloadCommands {
         padding: var(--spacing-md) 0;
     }
 }
+
+/* Collapsible Warning */
+.warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    color: #856404;
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-base);
+}
+
+.warning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    cursor: pointer;
+}
+
+.warning-header strong {
+    margin: 0;
+    font-size: var(--font-size-lg);
+}
+
+.collapse-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+}
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+}
+
+.warning.collapsed .chevron-icon {
+    transform: rotate(-180deg);
+}
+
+.warning-content {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    max-height: 1000px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.warning.collapsed .warning-content {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.warning-list {
+    list-style-type: none;
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-sm) 0;
+}
+
+.warning-list li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.warning-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: inherit;
+}
+
+.warning-note {
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+}
+
+.warning a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.warning a:hover {
+    text-decoration: none;
+}
+
+/*BEGINN REDESIGN OF GUIDE SECTION*/
+/* Guide spezifische Styles */
+.guide-section {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Verschachtelte Cards f�r den Guide */
+.card.sub-card {
+    border-left: 2px solid var(--primary-color);
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Tools Grid im Guide */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+}
+
+.tool-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    border-left: 2px solid var(--primary-light);
+}
+
+.tool-card h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Info Boxes im Guide */
+.notice-box {
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.notice-box h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card.sub-card {
+        margin-left: 0;
+    }
+}
+
+

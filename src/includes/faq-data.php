@@ -1,6 +1,4 @@
 <?php
-// Datei: includes/faq-data.php
-
 $faqData = [
     [
         'question' => 'How do I use this tool?',
