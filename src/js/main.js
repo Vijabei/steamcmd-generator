@@ -3,9 +3,9 @@
  * Main JavaScript file for general functionality
  */
 
-// Warte bis das DOM vollständig geladen ist
+// Warte bis das DOM vollstï¿½ndig geladen ist
 document.addEventListener('DOMContentLoaded', function() {
-    // Füge .active Klasse zum aktuellen Menüpunkt hinzu
+    // Fï¿½ge .active Klasse zum aktuellen Menï¿½punkt hinzu
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-main a');
     
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth Scroll für Anker-Links
+    // Smooth Scroll fï¿½r Anker-Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -41,3 +41,24 @@ function showMessage(message, type = 'info') {
         messageDiv.remove();
     }, 3000);
 }
+
+// Collapsible Warning functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const warning = document.querySelector('.warning');
+    const warningHeader = warning?.querySelector('.warning-header');
+    const warningContent = warning?.querySelector('.warning-content');
+
+    if (warning && warningHeader && warningContent) {
+        // Check localStorage for saved state
+        const isCollapsed = localStorage.getItem('warningCollapsed') === 'true';
+        if (isCollapsed) {
+            warning.classList.add('collapsed');
+        }
+
+        warningHeader.addEventListener('click', function() {
+            warning.classList.toggle('collapsed');
+            // Save state to localStorage
+            localStorage.setItem('warningCollapsed', warning.classList.contains('collapsed'));
+        });
+    }
+});
