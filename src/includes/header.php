@@ -9,6 +9,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start($session_opts);
 }
 
+header('X-Frame-Options: SAMEORIGIN');
+
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -33,9 +35,7 @@ if ($isLegacy) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-    <!-- Neuer canonical Tag -->
     <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl); ?>">
     <title><?php echo htmlspecialchars(SITE_TITLE); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars(SITE_DESCRIPTION); ?>">
