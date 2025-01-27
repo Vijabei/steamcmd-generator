@@ -20,8 +20,8 @@
     visibility: hidden;
     
     /* Transitions */
-    transition: opacity var(--transition-base),
-                visibility var(--transition-base);
+    transition: opacity var(--transition-duration-base) var(--transition-timing-ease),
+                visibility var(--transition-duration-base) var(--transition-timing-ease);
     
     /* Center content */
     display: flex;
@@ -162,7 +162,7 @@
 }
 
 .warning-list li:before {
-    content: "•";
+    content: "ï¿½";
     position: absolute;
     left: 0;
     color: inherit;
@@ -225,7 +225,7 @@
    Mobile-friendly modifications
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .feedback-popup-content {
         width: 95%;
         max-height: 90vh;

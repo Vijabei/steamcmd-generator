@@ -25,20 +25,16 @@
 .grid-4 { grid-template-columns: 1fr; }
 
 /* Grid breakpoints */
-@media (min-width: 640px) {
+@media (min-width: var(--breakpoint-sm)) {
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 768px) {
+@media (min-width: var(--breakpoint-md)) {
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: var(--breakpoint-lg)) {
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    
-    .container {
-        padding: 0 var(--spacing-lg);
-    }
 }
 
 /* ==========================================================================
@@ -149,10 +145,11 @@ main {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
+    align-items: flex-start;    /* Verhindert das Strecken der Cards */
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .guide-navigation {
         flex-wrap: wrap;
     }

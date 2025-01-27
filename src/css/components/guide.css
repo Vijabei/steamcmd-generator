@@ -27,6 +27,7 @@
     flex: 0 0 100%;
     width: 100%;
     min-width: 100%;
+    height: auto;
     padding: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
     
@@ -198,7 +199,7 @@
 }
 
 .feature-list li:before {
-    content: "?";
+    content: "•";
     color: var(--primary-color);
     position: absolute;
     left: 0;
@@ -215,7 +216,7 @@
    Mobile-friendly modifications
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .guide-section {
         padding: var(--spacing-sm);
     }
