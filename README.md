@@ -16,7 +16,7 @@ It is the companion to two other tools:
 - 🌐 Collections are resolved via the official Steam Web API - no scraping, no API key
 - 👤 Works together with the Tampermonkey script for personal subscription lists
 - 📚 Guide and FAQ for the whole workflow (SteamCMD, mod installation, the app)
-- 🎨 Light and dark theme
+- 🎨 Themes: Light, Dark and a Steam-inspired look - adding your own skin is a single CSS file (see `css/themes/`)
 - 🔒 Privacy-friendly: IP addresses are anonymized before logging; log and feedback directories are blocked from web access
 
 ## Requirements
@@ -27,11 +27,27 @@ It is the companion to two other tools:
 
 ## Setup
 
+The guided way:
+
+1. Copy the files to your web root.
+2. Open `setup-check.php` in your browser - it verifies all requirements (PHP version, cURL, Steam API reachability, directory permissions, log protection) and creates `includes/config.php` for you.
+3. Follow the remaining notes on that page, then **delete `setup-check.php`** from production.
+
+The manual way:
+
 1. Copy the files to your web root.
 2. Copy `includes/config.sample.php` to `includes/config.php` and set `BASE_URL` to your domain.
 3. Copy `sitemap.sample.xml` to `sitemap.xml` and `robots.sample.txt` to `robots.txt`, replace the example domain.
 4. Make sure `logs/` and `feedback/` are writable by PHP - and verify that both are **not** reachable from the web (the included `.htaccess` files handle this on Apache).
 5. Optional: adjust the endpoint URLs in `downloads/collection-downloader.user.js` if you self-host the Tampermonkey script.
+
+## Themes / Skins
+
+A theme is a single CSS file in `css/themes/` that overrides the design tokens from `css/style.css` (colors, shadows, surfaces). To add one:
+
+1. Copy `css/themes/dark.css` to `css/themes/<name>.css` and change the values under `html[data-theme="<name>"]`.
+2. Link the file in `includes/header.php`.
+3. Add `<name>` to the `THEMES` list in `js/theme.js` and an `<option>` to the theme selector in `includes/navigation.php`.
 
 ## Deployment via GitHub Actions
 

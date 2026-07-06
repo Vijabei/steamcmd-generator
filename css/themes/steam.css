@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Steam Theme
+   Inspired by the Steam client's dark blue look.
+   Activated via data-theme="steam" on <html> (see js/theme.js).
+   ========================================================================== */
+
+html[data-theme="steam"] {
+    /* Colors - Steam's signature blue accent */
+    --primary-color: #66C0F4;
+    --primary-hover: #8ED1FF;
+    --primary-light: #1E3A52;
+
+    /* Neutral colors - deep blue-grey panels */
+    --text-color: #C7D5E0;
+    --text-light: #8F98A0;
+    --text-bright: #DFE3E6;
+    --bg-color: #1B2838;
+    --bg-light: #243447;
+    --bg-dark: #171A21;
+    --border-color: #3D4B5E;
+
+    /* Status colors */
+    --success-color: #A4D007;
+    --success-light: #2A330A;
+    --error-color: #FF7B7B;
+    --error-light: #3E1A1A;
+    --warning-bg: #34290F;
+    --warning-border: #C1971C;
+    --warning-text: #E8C56B;
+
+    /* Surface variants */
+    --bg-sunken: #1C2A3A;
+    --bg-sunken-hover: #253850;
+    --bg-code: #16202D;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    /* Native form controls and scrollbars */
+    color-scheme: dark;
+}
+
+/* Steam's buttons use dark text on the light blue accent for contrast */
+html[data-theme="steam"] .btn,
+html[data-theme="steam"] .btn:link,
+html[data-theme="steam"] .btn:visited,
+html[data-theme="steam"] .btn:hover,
+html[data-theme="steam"] .guide-navigation .nav-button.active,
+html[data-theme="steam"] .nav-main a:hover {
+    color: #1B2838;
+}

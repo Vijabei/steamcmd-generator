@@ -3,52 +3,55 @@
  * Theme switcher. Loaded in <head> so the theme attribute is set before
  * the page renders (no flash of the wrong theme).
  *
+ * Adding a new theme:
+ *   1. Create css/themes/<name>.css with html[data-theme="<name>"] { ... }
+ *   2. Link it in includes/header.php
+ *   3. Add the name to THEMES below and an <option> to the navigation select
+ *
  * Order of precedence: user choice (localStorage) > OS preference > light.
  */
 (function () {
     'use strict';
 
-    function currentTheme() {
-        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    }
+    var THEMES = ['light', 'dark', 'steam'];
 
     function applyTheme(theme) {
+        if (THEMES.indexOf(theme) === -1) theme = 'light';
         document.documentElement.setAttribute('data-theme', theme);
-        document.querySelectorAll('.theme-toggle').forEach(function (button) {
-            button.textContent = theme === 'dark' ? '☀️' : '🌙';
-            button.setAttribute('aria-label',
-                theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-            button.title = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+        document.querySelectorAll('.theme-select').forEach(function (select) {
+            select.value = theme;
         });
+        return theme;
+    }
+
+    function storedTheme() {
+        try {
+            var value = localStorage.getItem('theme');
+            return THEMES.indexOf(value) !== -1 ? value : null;
+        } catch (e) {
+            return null;
+        }
     }
 
     // Apply as early as possible (before first paint)
-    var stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) { /* blocked storage */ }
-
-    var initial = stored === 'dark' || stored === 'light'
-        ? stored
-        : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
+    var initial = storedTheme() ||
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', initial);
 
     document.addEventListener('DOMContentLoaded', function () {
-        applyTheme(currentTheme());
+        applyTheme(document.documentElement.getAttribute('data-theme'));
 
-        document.querySelectorAll('.theme-toggle').forEach(function (button) {
-            button.addEventListener('click', function () {
-                var next = currentTheme() === 'dark' ? 'light' : 'dark';
-                applyTheme(next);
-                try { localStorage.setItem('theme', next); } catch (e) { /* blocked storage */ }
+        document.querySelectorAll('.theme-select').forEach(function (select) {
+            select.addEventListener('change', function () {
+                var theme = applyTheme(select.value);
+                try { localStorage.setItem('theme', theme); } catch (e) { /* blocked storage */ }
             });
         });
 
         // Follow OS changes as long as the user hasn't chosen manually
-        if (!stored && window.matchMedia) {
+        if (!storedTheme() && window.matchMedia) {
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-                var manual = null;
-                try { manual = localStorage.getItem('theme'); } catch (err) { }
-                if (!manual) {
+                if (!storedTheme()) {
                     applyTheme(e.matches ? 'dark' : 'light');
                 }
             });
