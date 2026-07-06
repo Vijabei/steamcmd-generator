@@ -1,5 +1,7 @@
 <?php
-define('PAGE_SCRIPTS', ['/js/form.js']); 
+define('PAGE_TITLE', 'Generate SteamCMD Commands');
+define('PAGE_DESCRIPTION', 'Paste a Steam Workshop collection URL and get ready-to-use SteamCMD download commands - nested collections supported, no login or API key required.');
+define('PAGE_SCRIPTS', ['/js/form.js']);
 include '../includes/header.php';
 ?>
 

@@ -41,6 +41,37 @@ The manual way:
 4. Make sure `logs/` and `feedback/` are writable by PHP - and verify that both are **not** reachable from the web (the included `.htaccess` files handle this on Apache).
 5. Optional: adjust the endpoint URLs in `downloads/collection-downloader.user.js` if you self-host the Tampermonkey script.
 
+## API
+
+`generate.php` is a small JSON API - the website form, the Tampermonkey script and any third-party client (including AI agents) use the same endpoints:
+
+**Resolve a collection** (nested collections are flattened automatically):
+
+```
+POST /generate.php
+Content-Type: application/x-www-form-urlencoded
+
+collectionURL=https://steamcommunity.com/sharedfiles/filedetails/?id=123456789
+```
+
+**Build a script from a plain mod list** (used for subscription pages):
+
+```
+POST /generate.php
+Content-Type: application/x-www-form-urlencoded
+
+modIds=["111","222","333"]&appId=294100
+```
+
+**Response** (both variants):
+
+```json
+{ "success": true, "downloadCommands": "// SteamCMD script ...", "warning": "optional note" }
+{ "success": false, "error": "message" }
+```
+
+Collections are resolved via the official Steam Web API (`ISteamRemoteStorage`) - no Steam login or API key involved. Cross-origin requests are only accepted from the origins listed in `ALLOWED_ORIGINS`. An [`llms.txt`](llms.txt) with a machine-readable summary of the tools is served at the site root.
+
 ## Themes / Skins
 
 A theme is a single CSS file in `css/themes/` that overrides the design tokens from `css/style.css` (colors, shadows, surfaces). To add one:

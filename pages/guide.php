@@ -1,5 +1,7 @@
-<?php 
-define('PAGE_SCRIPTS', ['/js/slide.js', '/js/feedback.js']); 
+<?php
+define('PAGE_TITLE', 'Workshop Collection Guide');
+define('PAGE_DESCRIPTION', 'Step-by-step guide: find Steam Workshop collections, download mods with SteamCMD or the Workshop Manager app, and install them - for GOG, Epic Games and dedicated servers.');
+define('PAGE_SCRIPTS', ['/js/slide.js', '/js/feedback.js']);
 include '../includes/header.php';
 ?>
 

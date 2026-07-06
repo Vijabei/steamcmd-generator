@@ -18,17 +18,14 @@ if (empty($_SESSION['csrf_token'])) {
 
 require_once 'config.php';
 
-// Canonical URLs (base comes from the deployment config)
-$currentPath = $_SERVER['REQUEST_URI'];
-$isLegacy = strpos($currentPath, '/legacy/') !== false;
-$canonicalBase = BASE_URL;
+// Canonical URL (base comes from the deployment config)
+$canonicalUrl = BASE_URL . strtok($_SERVER['REQUEST_URI'], '?');
 
-if ($isLegacy) {
-    $canonicalPath = str_replace('/legacy/', '/', $currentPath);
-    $canonicalUrl = $canonicalBase . $canonicalPath;
-} else {
-    $canonicalUrl = $canonicalBase . $currentPath;
-}
+// Page-specific title/description: pages may define PAGE_TITLE and
+// PAGE_DESCRIPTION before including this header; otherwise the site
+// defaults from the config are used.
+$pageTitle = defined('PAGE_TITLE') ? PAGE_TITLE . ' - ' . SITE_TITLE : SITE_TITLE;
+$pageDescription = defined('PAGE_DESCRIPTION') ? PAGE_DESCRIPTION : SITE_DESCRIPTION;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +34,17 @@ if ($isLegacy) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl); ?>">
-    <title><?php echo htmlspecialchars(SITE_TITLE); ?></title>
-    <meta name="description" content="<?php echo htmlspecialchars(SITE_DESCRIPTION); ?>">
+    <title><?php echo htmlspecialchars($pageTitle); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($pageDescription); ?>">
+
+    <!-- Open Graph / social embeds (Discord, Reddit, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?php echo htmlspecialchars(SITE_NAME); ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription); ?>">
+    <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars(BASE_URL); ?>/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="<?php echo $cssPath; ?>/style.css">
     <link rel="stylesheet" href="<?php echo $cssPath; ?>/layout.css">
     <link rel="stylesheet" href="<?php echo $cssPath; ?>/components.css">
@@ -68,6 +74,5 @@ if ($isLegacy) {
         <li>New: themes! Pick Light, Dark or the new Steam look in the navigation - your choice is remembered.</li>
         <li>Found a problem? Please use the feedback form and include your contact info so I can get back to you!</li>
     </ul>
-    <p class="warning-note">Looking for the old version? Visit <a href="https://softknight.de/legacy">softknight.de/legacy</a></p>
 </div>
     </div>

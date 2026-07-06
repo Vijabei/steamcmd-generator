@@ -28,7 +28,6 @@ jobs:
           **/downloads/*.zip
           **/feedback/*
           !**/feedback/.htaccess
-          **/legacy/**
           **/logs/*
           !**/logs/.htaccess
           **/*.log

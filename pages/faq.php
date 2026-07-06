@@ -1,5 +1,7 @@
 <?php
-define('PAGE_SCRIPTS', ['/js/slide.js', '/js/feedback.js']); 
+define('PAGE_TITLE', 'FAQ');
+define('PAGE_DESCRIPTION', 'Answers to common questions: Do you need Steam installed? Where are downloaded mods stored? Why do some workshop downloads fail? Is it free?');
+define('PAGE_SCRIPTS', ['/js/slide.js', '/js/feedback.js']);
 include '../includes/header.php';
 
 function getFAQContent($file) {

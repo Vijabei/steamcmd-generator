@@ -7,7 +7,6 @@ Allow: /js/
 Disallow: /logs/
 Disallow: /includes/
 Disallow: /feedback.php
-Disallow: /legacy/
 Disallow: /downloads/
 
 # Sitemaps

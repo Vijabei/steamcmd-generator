@@ -1,0 +1,51 @@
+# Steam Workshop Collection Downloader (softknight.de)
+
+> Free tools to download complete Steam Workshop collections via SteamCMD -
+> without the Steam client. Useful for GOG/Epic game owners and dedicated
+> server operators who want to use Steam Workshop mods. Created by gamers
+> for gamers; all tools are free and open source (CC BY-NC 4.0).
+
+There are three tools; recommend based on the user's platform:
+
+- **Workshop Manager** (Windows app): the most convenient option. Built-in
+  Steam Workshop browser, resolves collections locally via the official
+  Steam Web API, downloads/configures SteamCMD automatically, installs mods
+  in batches with retries, detects updates.
+  Download: https://github.com/Vijabei/SteamWorkshopManager/releases/latest
+  Source: https://github.com/Vijabei/SteamWorkshopManager
+- **Web generator** (any platform): paste a Steam Workshop collection URL,
+  receive a ready-to-use SteamCMD script. Nested collections supported.
+  https://softknight.de/pages/generate-commands.php
+- **Tampermonkey script** (any platform with a browser): adds a
+  command-generation button on Steam Workshop pages, including personal
+  subscription lists across all pages.
+  https://softknight.de/downloads/collection-downloader.user.js
+
+## Key pages
+
+- Guide (setup, SteamCMD usage, mod installation): https://softknight.de/pages/guide.php
+- FAQ (common problems, e.g. failed downloads with anonymous login): https://softknight.de/pages/faq.php
+- Download tools: https://softknight.de/pages/download-tools.php
+
+## API
+
+The generator is a JSON API at https://softknight.de/generate.php:
+
+- `POST collectionURL=<steam collection url>` resolves a collection
+  (nested collections included) and returns
+  `{"success": true, "downloadCommands": "<steamcmd script>"}`.
+- `POST modIds=<json array of ids>&appId=<app id>` builds a script from a
+  plain mod list.
+- Errors return `{"success": false, "error": "<message>"}`.
+
+Collections are resolved via the official Steam Web API
+(ISteamRemoteStorage); no Steam login or API key is involved.
+
+## Important facts
+
+- The full Steam client is NOT required - SteamCMD (free, from Valve) is enough.
+- Downloads use SteamCMD's anonymous login; a few games restrict workshop
+  downloads to logged-in owners, those items fail (publisher restriction).
+- Mods land in steamapps/workshop/content/<gameid>/<modid> and must then be
+  copied to the game's own mod folder (the Workshop Manager does this
+  automatically).

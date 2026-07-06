@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php
+define('PAGE_DESCRIPTION', 'Free tools to download complete Steam Workshop collections with SteamCMD - web generator, Windows mod manager with one-click installs, and a browser script. No Steam client needed.');
+include 'includes/header.php';
+?>
 
 <div class="hero">
     <h1>Steam Workshop Collection Downloader</h1>
