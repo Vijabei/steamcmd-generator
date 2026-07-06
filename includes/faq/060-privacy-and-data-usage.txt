@@ -1,0 +1,33 @@
+Privacy and Data Usage
+<p><b>What data do I collect?</b></p>
+<p>I take your privacy seriously and only collect the bare minimum of data needed to keep things running smoothly:</p>
+<ul>
+    <li>Timestamps: I track when the service is used to understand how often it's being used.</li>
+    <li>Technical information: in rare cases, for debugging, I might log:
+        <ul class="nested-list">
+            <li>Your IP address</li>
+            <li>Browser details</li>
+            <li>Operating system info</li>
+        </ul>
+    </li>
+</ul>
+
+<p>These technical details are just for fixing bugs and get deleted quickly.</p>
+
+<p><b>What about the Workshop Manager app?</b></p>
+<p>The desktop app sends no data to this website at all. It only talks to the official Steam servers (Web API and SteamCMD) to resolve and download the mods you request.</p>
+
+<p><b>How do I use your data?</b></p>
+<p>The data I collect helps me:</p>
+<ul>
+    <li>Improve the service: fix technical issues and enhance the functionality</li>
+    <li>Understand usage: learn how people are using the service to make it more user-friendly</li>
+</ul>
+
+<p><b>Sharing your data</b></p>
+<p>I will never sell or share your data with anyone. Your privacy matters to me like my own.</p>
+
+<p><b>Legal exceptions</b></p>
+<p>If someone tries to cause trouble or break the law with my service, I may need to share relevant information with law enforcement.
+ But this would only happen if absolutely necessary and in line with legal requirements.
+ I reserve the right to implement fraud detection tracking as needed to protect my service.</p>

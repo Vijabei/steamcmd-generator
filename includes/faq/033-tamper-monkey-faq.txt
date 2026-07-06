@@ -1,0 +1,5 @@
+Why TamperMonkey - and when should I use the script?
+<p>If you don't own a game on Steam, you can't create your own collection for it. But you can still <b>subscribe</b> to the mods you want, and the TamperMonkey script generates the SteamCMD commands directly from your personal subscriptions page - across all pages of your list.</p>
+<p>You find your subscriptions within your account. Copy the following URL and replace "YOUR-STEAM-USER-NAME" with your account name: <code>https://steamcommunity.com/id/YOUR-STEAM-USER-NAME/myworkshopfiles?browsefilter=mysubscriptions</code></p>
+<p><b>Tip for Windows users:</b> the <a href="download-tools.php#workshop-manager">Workshop Manager</a> can do the same thing without a browser extension - open your subscriptions page in its built-in browser and click "Collect items from all pages". The script remains the right choice on Linux/macOS or if you prefer working directly in your browser.</p>
+<p>The command generation itself is processed on this website. This way there is only a single codebase to maintain when Valve changes something on Steam.</p>

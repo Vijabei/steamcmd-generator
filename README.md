@@ -1,65 +1,52 @@
-# Steam Workshop Collection Downloader
+# Steam Workshop Collection Downloader (Website)
 
-A tool for downloading Steam Workshop Collections using SteamCMD. Created by gamers for gamers, this free utility simplifies the process of managing Workshop content through an easy-to-use web interface.
+![License](https://img.shields.io/badge/License-CC%20BY--NC-lightgrey.svg)
+![PHP](https://img.shields.io/badge/PHP-8.x-777BB4)
 
-## Project Structure
+The website behind [softknight.de](https://softknight.de): a free web tool that turns Steam Workshop collections into ready-to-use SteamCMD download commands. Created by gamers for gamers.
 
-- `/css` - Stylesheet files
-- `/js` - JavaScript files
-- `/includes` - PHP includes
-- `/pages` - PHP page files
-- `/downloads` - Download resources
+It is the companion to two other tools:
 
-## Setup Requirements
+- **[Workshop Manager](https://github.com/Vijabei/SteamWorkshopManager)** - the Windows app with a built-in workshop browser and one-click installs
+- **Tampermonkey script** (in [`downloads/`](downloads/)) - adds a command-generation button directly on Steam Workshop pages
 
-- PHP 7.4 or higher
-- Apache/Nginx web server
-- SteamCMD installation
-- Appropriate write permissions for logs and download directories
+## Features
 
-## Setup Instructions
+- 🔗 Paste a collection URL, get a complete SteamCMD script (nested collections included)
+- 🌐 Collections are resolved via the official Steam Web API - no scraping, no API key
+- 👤 Works together with the Tampermonkey script for personal subscription lists
+- 📚 Guide and FAQ for the whole workflow (SteamCMD, mod installation, the app)
+- 🎨 Light and dark theme
+- 🔒 Privacy-friendly: IP addresses are anonymized before logging; log and feedback directories are blocked from web access
 
-1. Clone the repository
-2. Configure web server (Apache/Nginx)
-3. Set up proper permissions for logs directory
-4. Configure environment-specific settings
+## Requirements
 
-## Development Workflow
+- PHP 8.0+ with `openssl` (for HTTPS calls to the Steam Web API) and `allow_url_fopen` enabled
+- Apache with `.htaccess` support (or equivalent rules on nginx)
+- Write permissions for the `logs/` and `feedback/` directories
 
-This project utilizes a structured branch strategy:
-- `main`: Production-ready code
-- `staging`: Pre-production testing
-- `develop`: Active development
-- Feature branches: New functionality implementation
+## Setup
 
-## Development Roadmap
+1. Copy the files to your web root.
+2. Copy `includes/config.sample.php` to `includes/config.php` and set `BASE_URL` to your domain.
+3. Copy `sitemap.sample.xml` to `sitemap.xml` and `robots.sample.txt` to `robots.txt`, replace the example domain.
+4. Make sure `logs/` and `feedback/` are writable by PHP - and verify that both are **not** reachable from the web (the included `.htaccess` files handle this on Apache).
+5. Optional: adjust the endpoint URLs in `downloads/collection-downloader.user.js` if you self-host the Tampermonkey script.
 
-### Phase 1: Critical Text Updates (on hold)
-- [ ] Revise texts regarding SteamCMD requirements
-- [ ] Help documentation for collection-download.php
-- [ ] Documentation for non-Steam platform mods
+## Deployment via GitHub Actions
 
-### Phase 2: Structural Changes (current priority)
-#### File Structure Reorganization
-1. Split collection-download.php
-   - New command generation page
-   - New download page for Workshop Manager and TamperMonkey
+`.github/workflows/deploy.yml` contains an FTP deployment for the `staging` branch. Set the `FTP_SERVER`, `FTP_USERNAME` and `FTP_PASSWORD` secrets in your repository settings and adjust `server-dir` to your hosting path.
 
-2. Guide Consolidation
-   - Merge workshop-guide.php and server-setup.php
-   - Content integration
-   - Revision of combined documentation
+## Privacy notes
 
-3. File Structure
-   - Review filenames in /pages directory
-   - Ensure consistent naming conventions
-   - Update all internal links
+- Visitor IP addresses are anonymized (IPv4: last octet zeroed, IPv6: truncated to /48) before they are written to any log.
+- `logs/` and `feedback/` are excluded from version control and blocked from web access - keep it that way.
+- The Workshop Manager desktop app never sends data to this website; it only talks to the official Steam servers.
 
-4. Navigation
-   - Adapt navigation to new structure
-   - Update menu items
-   - Verify all navigation paths
+## License
 
-### Phase 3: Additional Documentation (not started)
-- [ ] SteamCMD usage documentation
-- [ ] Collection usage documentation
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/) - free to use, adapt and share, but not for commercial purposes.
+
+## Support
+
+Found a bug or have an idea? Open an issue here on GitHub or use the feedback form on the website.

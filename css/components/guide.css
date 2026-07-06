@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Guide Section Layout
+   Main container and structure for guide content
+   ========================================================================== */
+
+.guide-section {
+    /* Core layout */
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    overflow: hidden;
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* ==========================================================================
+   Guide Cards
+   Specialized card components for guide content
+   ========================================================================== */
+
+/* Main guide cards - Primary content containers */
+.card.main-card {
+    /* Layout */
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    
+    /* Box model */
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    /* Appearance */
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Sub-cards - Nested content sections */
+.card.sub-card {
+    /* Layout */
+    width: 100%;
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    
+    /* Box model */
+    box-sizing: border-box;
+    
+    /* Appearance */
+    background-color: var(--bg-sunken);
+    border-left: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+
+    /* Animation */
+    transition: background-color var(--transition-base);
+}
+
+.card.sub-card:hover {
+    background-color: var(--bg-sunken-hover);
+}
+
+/* ==========================================================================
+   Tool Components
+   Components for displaying tools and features
+   ========================================================================== */
+
+/* Tool features grid */
+.tool-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Individual tool cards */
+.tool-card {
+    /* Layout */
+    padding: var(--spacing-md);
+
+    /* Appearance */
+    background-color: var(--bg-sunken);
+    border-radius: var(--border-radius);
+    border-left: 2px solid var(--primary-light);
+}
+
+.tool-card h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Tool preview section */
+.app-preview {
+    /* Layout */
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    /*text-align: center;*/
+    
+    /* Appearance */
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+}
+
+.app-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+.app-preview .caption {
+    margin-top: var(--spacing-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+}
+
+/* ==========================================================================
+   Information Components
+   Notice boxes and code examples
+   ========================================================================== */
+
+/* Notice boxes for important information */
+.notice-box {
+    /* Layout */
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    width: 100%;  /* Das reicht, da box-sizing: border-box aktiv ist */
+    
+    /* Box model */
+    box-sizing: border-box;
+    
+    /* Appearance */
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+}
+
+.notice-box h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Code examples and snippets */
+.code-example {
+    /* Layout */
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    
+    /* Appearance */
+    background-color: var(--bg-code);
+    border-radius: var(--border-radius);
+    border-left: 2px solid var(--primary-color);
+    
+    /* Typography */
+    font-family: monospace;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* Example boxes for demonstrations */
+.example-box {
+    /* Layout */
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    
+    /* Appearance */
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.example-box h4 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   List Styling
+   Custom list styles for guide content
+   ========================================================================== */
+
+/* Feature lists */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.feature-list li {
+    padding-left: var(--spacing-lg);
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Nested lists with proper spacing */
+.nested-list {
+    margin-left: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   Mobile-friendly modifications
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .guide-section {
+        padding: var(--spacing-sm);
+    }
+    
+    .card.main-card {
+        padding: var(--spacing-md);
+    }
+    
+    .tool-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .example-box {
+        margin: var(--spacing-sm) 0;
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   Optimizations for printed guide content
+   ========================================================================== */
+
+@media print {
+    .guide-section {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+    
+    .code-example {
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+}

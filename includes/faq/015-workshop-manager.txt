@@ -1,0 +1,10 @@
+What is the Workshop Manager - and do I still need the command generator?
+<p>The <a href="download-tools.php#workshop-manager">Workshop Manager</a> is our free, open-source Windows app that handles the complete process on its own: it has a built-in Steam Workshop browser, resolves collections (including nested ones) via the official Steam Web API, downloads SteamCMD for you and installs all mods with one click.</p>
+<p>If you use the Workshop Manager, you <b>don't</b> need the command generator on this website anymore - the app does the same thing internally. The generator remains useful if you:</p>
+<ul>
+    <li>are on Linux or macOS (the app is Windows-only),</li>
+    <li>run a dedicated game server and want plain SteamCMD scripts,</li>
+    <li>simply prefer doing things manually.</li>
+</ul>
+<br>
+<p>Both tools produce the same SteamCMD commands under the hood, so you can switch between them at any time.</p>

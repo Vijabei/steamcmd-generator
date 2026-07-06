@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Dark Theme
+   Activated via data-theme="dark" on <html> (see js/theme.js).
+   A theme only overrides the design tokens from style.css - components
+   pick the values up automatically. Use this file as a template for
+   additional themes.
+   ========================================================================== */
+
+html[data-theme="dark"] {
+    /* Colors */
+    --primary-color: #5CBF60;
+    --primary-hover: #6FCC73;
+    --primary-light: #1E3A26;
+
+    /* Neutral colors */
+    --text-color: #E4E4E7;
+    --text-light: #A1A1AA;
+    --text-bright: #E0E0E0;
+    --bg-color: #18181B;
+    --bg-light: #232327;
+    --bg-dark: #111114;
+    --border-color: #3F3F46;
+
+    /* Status colors */
+    --success-color: #34D399;
+    --success-light: #0B3B2E;
+    --error-color: #F87171;
+    --error-light: #431414;
+    --warning-bg: #33290F;
+    --warning-border: #B8860B;
+    --warning-text: #E8C56B;
+
+    /* Surface variants */
+    --bg-sunken: #2A2A2F;
+    --bg-sunken-hover: #333338;
+    --bg-code: #1C1C20;
+
+    /* Shadows need more weight on dark backgrounds */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    /* Native form controls and scrollbars */
+    color-scheme: dark;
+}

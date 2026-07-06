@@ -1,5 +1,5 @@
 name: Deploy to Test Server
-   
+
 on:
   push:
     branches:
@@ -11,25 +11,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./src/     # Content of src/ will be copied to the server
+        local-dir: ./
         server-dir: /www/vijabei/test/  # Insert your FTP path here
         dangerous-clean-slate: false
         exclude: |
-          **/downloads/**
-          **/feedback/**
+          **/.git*
+          **/.git*/**
+          **/downloads/*.zip
+          **/feedback/*
+          !**/feedback/.htaccess
           **/legacy/**
-          **/logs/**
+          **/logs/*
+          !**/logs/.htaccess
           **/*.log
-          **/clickcounter-*.txt
-          **/collection_logs.txt
-          **/user_interactions.log
           google*.html
-          **/*.zip
+          README.md
+          LICENSE.md
+          *.sample.*
+          **/*.sample.php

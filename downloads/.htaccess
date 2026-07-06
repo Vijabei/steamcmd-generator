@@ -1,0 +1,6 @@
+# /downloads/.htaccess
+Options -Indexes
+<Files "*.js">
+    ForceType application/javascript
+    Header set Content-Disposition "attachment; filename=$1"
+</Files>

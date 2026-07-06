@@ -1,0 +1,3 @@
+Do I need Steam installed?
+<p>No, you don't need the full Steam client installed. You only need SteamCMD, which is a lightweight command-line version of Steam designed specifically for server operators and downloading workshop content.</p>
+<p>If you use the <a href="download-tools.php#workshop-manager">Workshop Manager</a>, you don't even have to set up SteamCMD yourself - the app downloads and configures it for you with one click.</p>

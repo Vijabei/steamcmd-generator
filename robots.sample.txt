@@ -1,0 +1,14 @@
+# Copy to robots.txt and replace www.example.com with your domain
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /css/
+Allow: /js/
+Disallow: /logs/
+Disallow: /includes/
+Disallow: /feedback.php
+Disallow: /legacy/
+Disallow: /downloads/
+
+# Sitemaps
+Sitemap: https://www.example.com/sitemap.xml

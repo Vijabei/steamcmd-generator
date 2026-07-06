@@ -1,0 +1,10 @@
+Why do some mods fail to download?
+<p>The tools use SteamCMD with an <b>anonymous</b> login. Most games allow anonymous workshop downloads, but some publishers restrict their workshop content to logged-in Steam accounts that own the game. Those items will fail with anonymous access - that is a restriction by the publisher, not a bug in the tools.</p>
+<p>Other common reasons:</p>
+<ul>
+    <li>The mod was removed or hidden by its author (it may still be listed in an old collection)</li>
+    <li>Very large mods can time out - simply run the download again, SteamCMD continues where it stopped</li>
+    <li>Temporary Steam server hiccups - waiting a few minutes usually helps</li>
+</ul>
+<br>
+<p>The <a href="download-tools.php#workshop-manager">Workshop Manager</a> retries failed downloads automatically and shows you afterwards exactly which mods could not be fetched.</p>

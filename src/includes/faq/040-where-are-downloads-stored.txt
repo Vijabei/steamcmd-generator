@@ -1,8 +1,0 @@
-Where are the downloaded mods stored?
-<p>Workshop content is downloaded to:</p>
-<ul>
-    <li>Windows: steamapps\workshop\content\[gameid]</li>
-    <li>Linux: steamapps/workshop/content/[gameid]</li>
-</ul>
-<br>
-Each mod gets its own folder named after its Workshop ID.

@@ -1,0 +1,9 @@
+Where are the downloaded mods stored?
+<p>When you run the commands manually, SteamCMD downloads workshop content to its own folder:</p>
+<ul>
+    <li>Windows: <code>steamapps\workshop\content\[gameid]</code></li>
+    <li>Linux: <code>steamapps/workshop/content/[gameid]</code></li>
+</ul>
+<br>
+<p>Each mod gets its own folder named after its Workshop ID. From there you copy the mods into your game's mod folder - the location differs from game to game.</p>
+<p>The <a href="download-tools.php#workshop-manager">Workshop Manager</a> does this last step for you: it copies the downloaded mods straight into the install folder you choose and can optionally clean up the raw download files afterwards.</p>

@@ -1,0 +1,5 @@
+What happens after I give feedback?
+<p>Thank you very much for any feedback. It helps me to improve the service and to wipe out errors or unintended behavior.</p>
+<p>To help you solve your issue, please include some contact information. I can give you support in English and German. But please also be aware that I am doing this in my rare free time as a full-time worker and family father.</p>
+<p>And some words to the courageous people downloading the native Windows app: don't download exe files from random internet dudes - stay safe! That's why the Workshop Mod Manager is open source: you can review the code and download it from <a href="https://github.com/Vijabei/SteamWorkshopManager" target="_blank" rel="noopener">GitHub</a>.</p>
+<p>I originally created the tool for my personal need to copy Project Zomboid mods from the SteamCMD download directory to my (GOG) mods folder. It has grown quite a bit since then - and your feedback keeps shaping it.</p>

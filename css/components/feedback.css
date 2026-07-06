@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Feedback Popup
+   Modal dialog for user feedback and interactions
+   ========================================================================== */
+
+.feedback-popup {
+    /* Fullscreen overlay positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    
+    /* Overlay appearance */
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    /* Initial state */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Transitions */
+    transition: opacity var(--transition-duration-base) var(--transition-timing-ease),
+                visibility var(--transition-duration-base) var(--transition-timing-ease);
+    
+    /* Center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Active state */
+.feedback-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup content container */
+.feedback-popup-content {
+    /* Layout */
+    width: 90%;
+    max-width: 500px;
+    padding: var(--spacing-lg);
+    margin: 0 auto;
+    position: relative;
+    
+    /* Appearance */
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    
+    /* Animation */
+    transform: translateY(-20px);
+    transition: transform var(--transition-base);
+}
+
+.feedback-popup.active .feedback-popup-content {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Close Button
+   Universal close button for modals and popups
+   ========================================================================== */
+
+.close-button {
+    /* Positioning */
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    
+    /* Dimensions */
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    
+    /* Appearance */
+    background: none;
+    border: none;
+    color: var(--text-light);
+    
+    /* Typography */
+    font-size: var(--font-size-xl);
+    line-height: 1;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Interaction */
+    cursor: pointer;
+    transition: color var(--transition-base);
+}
+
+.close-button:hover {
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   Alert Messages
+   Status and feedback indicators
+   ========================================================================== */
+
+/* Warning banner */
+.warning {
+    /* Layout */
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+    
+    /* Appearance */
+    background-color: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+    color: var(--warning-text);
+    
+    /* Typography */
+    font-size: var(--font-size-base);
+}
+
+/* Warning header */
+.warning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    cursor: pointer;
+}
+
+.warning-header strong {
+    margin: 0;
+    font-size: var(--font-size-lg);
+}
+
+/* Warning content */
+.warning-content {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    max-height: 1000px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Collapsed state */
+.warning.collapsed .warning-content {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Warning list styling */
+.warning-list {
+    list-style-type: none;
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-sm) 0;
+}
+
+.warning-list li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.warning-list li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: inherit;
+}
+
+/* ==========================================================================
+   Progress Indicators
+   Loading and progress states
+   ========================================================================== */
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   Response Indicators
+   Visual feedback for user actions
+   ========================================================================== */
+
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+}
+
+.status-indicator.success {
+    background-color: var(--success-color);
+}
+
+.status-indicator.error {
+    background-color: var(--error-color);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   Mobile-friendly modifications
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .feedback-popup-content {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: var(--spacing-md);
+    }
+
+    .warning-header {
+        flex-wrap: wrap;
+    }
+}

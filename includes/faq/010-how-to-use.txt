@@ -1,0 +1,12 @@
+How do I use this tool?
+<p>The easiest way (Windows): use the <a href="download-tools.php#workshop-manager">Workshop Mod Manager</a>. It has a built-in workshop browser - import a collection with one click and it downloads and installs everything for you.</p>
+<p>The manual way (any platform with SteamCMD):</p>
+<ol>
+    <li>Copy your Steam Workshop collection URL</li>
+    <li>Paste it into our <a href="generate-commands.php">command generator</a></li>
+    <li>Click "Generate Commands"</li>
+    <li>Download the generated command file</li>
+    <li>Use it with SteamCMD</li>
+</ol>
+<br>
+<p>For detailed instructions, check our <a href="guide.php">guide</a> or the <a href="https://developer.valvesoftware.com/wiki/SteamCMD#Automating_SteamCMD" target="_blank" rel="noopener">official SteamCMD documentation</a>.</p>

@@ -1,31 +1,30 @@
-# Logs
-src/logs/*
+# ==========================================================================
+# Privacy: NEVER commit these - they contain visitor data (GDPR)
+# ==========================================================================
+logs/*
+!logs/.htaccess
+feedback/*
+!feedback/.htaccess
 *.log
 
-# Environment
-src/.env
-src/config.local.php
+# Per-deployment configuration (copy the .sample files and adjust)
+includes/config.php
+sitemap.xml
+robots.txt
 
-# IDE
+# Search engine site verification (deployment-specific)
+google*.html
+
+# Binaries - the app zip comes from the SteamWorkshopManager releases
+downloads/*.zip
+
+# Old website version (kept on the server only)
+legacy/
+
+# Environment / IDE / system
+.env
 .vscode/
 .idea/
-
-# System Files
 .DS_Store
 Thumbs.db
 *.bak
-
-# Sensitive Configuration
-src/config.php
-
-# Legacy Webpage
-src/legacy/*
-
-# Google Auth
-src/google*.html
-
-# Feedback
-src/feedback/*
-
-# Downloads
-src/downloads/*
