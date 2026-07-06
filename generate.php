@@ -279,13 +279,56 @@ class WorkshopCollectionProcessor {
     }
 
     private function postToApi($url, array $postData) {
+        $body = $this->httpPost($url, http_build_query($postData));
+
+        $decoded = json_decode($body, true);
+        if (!is_array($decoded)) {
+            throw new Exception('Unexpected response from the Steam Web API');
+        }
+
+        return $decoded;
+    }
+
+    /**
+     * HTTPS POST helper. Prefers cURL (available on virtually every
+     * shared host); falls back to stream wrappers where cURL is missing
+     * but allow_url_fopen/openssl are enabled.
+     */
+    private function httpPost($url, $content) {
+        if (function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $content,
+                CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_MAXREDIRS => 3,
+                CURLOPT_CONNECTTIMEOUT => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_USERAGENT => $this->userAgent,
+                CURLOPT_SSL_VERIFYPEER => true
+            ]);
+
+            $body = curl_exec($ch);
+
+            if ($body === false) {
+                $error = curl_error($ch);
+                curl_close($ch);
+                throw new Exception("Could not reach the Steam Web API. Last error: {$error}");
+            }
+
+            curl_close($ch);
+            return $body;
+        }
+
         $options = [
             'http' => [
                 'method' => 'POST',
                 'user_agent' => $this->userAgent,
                 'timeout' => 30,
                 'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-                'content' => http_build_query($postData),
+                'content' => $content,
                 'ignore_errors' => true
             ],
             'ssl' => [
@@ -294,20 +337,14 @@ class WorkshopCollectionProcessor {
             ]
         ];
 
-        $context = stream_context_create($options);
-        $body = @file_get_contents($url, false, $context);
+        $body = @file_get_contents($url, false, stream_context_create($options));
 
         if ($body === false) {
             $lastError = error_get_last()['message'] ?? 'Unknown error';
             throw new Exception("Could not reach the Steam Web API. Last error: {$lastError}");
         }
 
-        $decoded = json_decode($body, true);
-        if (!is_array($decoded)) {
-            throw new Exception('Unexpected response from the Steam Web API');
-        }
-
-        return $decoded;
+        return $body;
     }
 }
 
