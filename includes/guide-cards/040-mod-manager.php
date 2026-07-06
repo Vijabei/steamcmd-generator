@@ -35,6 +35,7 @@
                         <li><span role="img" aria-label="memo">📝</span> Organizes mods in the correct folders</li>
                         <li><span role="img" aria-label="broom">🧹</span> Optional cleanup of temporary files</li>
                         <li><span role="img" aria-label="stop button">⏹️</span> Full control: progress display and cancel at any time</li>
+                        <li><span role="img" aria-label="counterclockwise arrows">🔄</span> Keeps itself up to date - new versions install with one click</li>
                     </ul>
                 </div>
 

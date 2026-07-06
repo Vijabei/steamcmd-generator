@@ -36,7 +36,7 @@ include '../includes/header.php';
                 </svg>
                 Download Workshop Manager (GitHub)
             </a>
-            <p class="version-info">Version 1.0.0 - Windows 64-bit - free &amp; open source (CC BY-NC 4.0)</p>
+            <p class="version-info">Windows 64-bit - free &amp; open source (CC BY-NC 4.0) - keeps itself up to date automatically</p>
             <p class="version-info">Requires the <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank" rel="noopener">.NET 8.0 Desktop Runtime</a>. SteamCMD is downloaded by the app itself.</p>
         </div>
     </div>
