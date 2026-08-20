@@ -7,7 +7,9 @@
             <p>&copy; <?php echo date('Y'); ?> SoftKnight - softknight.de</p>
             <p class="version">Version <?php echo htmlspecialchars($release['site_version']); ?></p>
             <p class="changelog"><?php echo $release['changelog']; ?></p>
-            <p class="status">Found a bug or missing a guide? Use the feedback form on the FAQ page - please include contact info for a reply.</p>
+            <p class="status">Found a bug or missing a guide? Report it on GitHub:
+                <a href="<?php echo htmlspecialchars($release['links']['issues_app']); ?>" target="_blank" rel="noopener">app issues</a> &middot;
+                <a href="<?php echo htmlspecialchars($release['links']['issues_site']); ?>" target="_blank" rel="noopener">website &amp; script issues</a></p>
         </div>
     </footer>
     <script src="<?php echo $jsPath; ?>/main.js"></script>

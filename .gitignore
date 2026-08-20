@@ -3,8 +3,6 @@
 # ==========================================================================
 logs/*
 !logs/.htaccess
-feedback/*
-!feedback/.htaccess
 *.log
 
 # Cached API responses - regenerated at runtime

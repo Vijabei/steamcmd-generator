@@ -206,7 +206,7 @@ if ($hasCurl || $hasStreamFallback) {
 }
 
 // Writable directories
-foreach (['logs', 'feedback'] as $dir) {
+foreach (['logs', 'cache'] as $dir) {
     $path = __DIR__ . '/' . $dir;
     if (!is_dir($path)) {
         if (@mkdir($path, 0755, true)) {
@@ -219,7 +219,7 @@ foreach (['logs', 'feedback'] as $dir) {
     if (is_writable($path)) {
         addCheck($checks, 'ok', "Directory {$dir}/ writable", 'PHP can write files here.');
     } else {
-        addCheck($checks, 'fail', "Directory {$dir}/ writable", 'Not writable - logging/feedback will fail. Adjust the permissions.');
+        addCheck($checks, 'fail', "Directory {$dir}/ writable", 'Not writable - logging and the release version lookup will fall back. Adjust the permissions.');
     }
 
     if (file_exists($path . '/.htaccess')) {

@@ -6,7 +6,6 @@ Allow: /css/
 Allow: /js/
 Disallow: /logs/
 Disallow: /includes/
-Disallow: /feedback.php
 Disallow: /downloads/
 
 # Sitemaps

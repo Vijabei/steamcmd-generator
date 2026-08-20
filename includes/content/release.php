@@ -44,6 +44,14 @@ return [
         'latest'   => 'https://github.com/Vijabei/SteamWorkshopManager/releases/latest',
 
         /**
+         * Where people report problems. Feedback runs through GitHub issues
+         * so a report has a public thread, a status and a place to reply -
+         * split by topic, because the app and the website are two projects.
+         */
+        'issues_app'  => 'https://github.com/Vijabei/SteamWorkshopManager/issues',
+        'issues_site' => 'https://github.com/Vijabei/steamcmd-generator/issues',
+
+        /**
          * "owner/repo" for the releases API used to read the current version.
          * Leave empty to switch the lookup off and always use 'app_version'.
          */
@@ -62,7 +70,7 @@ return [
             '<b>Your mod details no longer vanish.</b> The app keeps a local library of every mod it ever installed, so when something is taken down from the Workshop you still have its description and preview. You can export the whole library as Markdown.',
             '<b>Already running an older version?</b> Just start the app - it offers the update by itself and installs it with one click. Nothing to download by hand.',
             '<b>Want the new stuff early from now on?</b> There is a beta channel in the settings. Switch it on once and future test builds arrive the same way.',
-            'Found a problem? Please use the feedback form and include your contact info so I can get back to you!',
+            'Found a problem or have an idea? Open an issue on GitHub - for the app under <a href="https://github.com/Vijabei/SteamWorkshopManager/issues" target="_blank" rel="noopener">SteamWorkshopManager</a>, for this site and the browser script under <a href="https://github.com/Vijabei/steamcmd-generator/issues" target="_blank" rel="noopener">steamcmd-generator</a>. You will get a notification when it is answered.',
         ],
     ],
 

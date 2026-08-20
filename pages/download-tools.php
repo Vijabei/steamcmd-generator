@@ -1,7 +1,6 @@
 <?php
 define('PAGE_TITLE', 'Download Tools');
 define('PAGE_DESCRIPTION', 'Get the Workshop Manager for Windows (built-in workshop browser, one-click mod installs) or the Tampermonkey script for generating SteamCMD commands directly on Steam pages.');
-define('PAGE_SCRIPTS', ['/js/feedback.js']);
 include '../includes/header.php';
 ?>
 

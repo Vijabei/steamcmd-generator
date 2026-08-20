@@ -11,9 +11,9 @@
    All navigation-related styles */
 @import './components/navigation.css';
 
-/* Feedback Components
-   Interactive elements and user feedback */
-@import './components/feedback.css';
+/* Alert Components
+   Warning banner, progress and status indicators */
+@import './components/alerts.css';
 
 /* Guide Components
    Specific components for the guide section */
@@ -24,7 +24,7 @@
    
    1. base.css contains fundamental UI components that other components might build upon
    2. navigation.css includes all navigation-related components
-   3. feedback.css contains interactive elements and feedback mechanisms
+   3. alerts.css contains the warning banner and status indicators
    4. guide.css has specialized components specific to the guide section
    
    This order ensures proper cascading and override behavior.

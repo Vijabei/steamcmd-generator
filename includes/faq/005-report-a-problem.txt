@@ -1,0 +1,5 @@
+How do I report a problem or suggest something?
+<p>Everything runs through GitHub issues. Pick the project it concerns: the Windows app lives in <a href="https://github.com/Vijabei/SteamWorkshopManager/issues" target="_blank" rel="noopener">SteamWorkshopManager</a>, this website and the browser script in <a href="https://github.com/Vijabei/steamcmd-generator/issues" target="_blank" rel="noopener">steamcmd-generator</a>.</p>
+<p>A GitHub account is free, and it beats the old contact form in every way that matters: you get a notification when someone replies, you can see whether your report is already being worked on, and other people with the same problem find the answer instead of reporting it again.</p>
+<p>Useful in a report: which tool and version you used, what you expected, and what happened instead. For the app, the log file next to <code>WorkshopManager.exe</code> is often the fastest way to the cause.</p>
+<p>I originally created the tool for my personal need to copy Project Zomboid mods from the SteamCMD download directory to my (GOG) mods folder. It has grown quite a bit since then - and your reports keep shaping it.</p>
