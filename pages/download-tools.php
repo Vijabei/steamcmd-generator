@@ -11,7 +11,7 @@ include '../includes/header.php';
 
     <!-- Workshop Manager Section -->
     <div class="card" id="workshop-manager">
-        <h2>Workshop Manager 1.0</h2>
+        <h2>Workshop Manager 1.2</h2>
         <p>The complete mod manager for Steam Workshop content - browse, pick and install without touching a command line:</p>
         <div class="tool-features">
             <div class="feature">
@@ -25,6 +25,14 @@ include '../includes/header.php';
             <div class="feature">
                 <h3>Keeps You Up to Date</h3>
                 <p>Shows mod titles, sizes and update status, skips what is already installed and detects available updates</p>
+            </div>
+            <div class="feature">
+                <h3>Every Mod's Details</h3>
+                <p>Preview image, tags and the full description for each mod, plus the required mods and DLC it depends on</p>
+            </div>
+            <div class="feature">
+                <h3>A Library That Lasts</h3>
+                <p>Keeps a local record of every mod you installed, so the details stay with you even after a mod is removed from the Workshop - exportable as Markdown</p>
             </div>
         </div>
         <div class="download-section">

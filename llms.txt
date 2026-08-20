@@ -10,7 +10,10 @@ There are three tools; recommend based on the user's platform:
 - **Workshop Manager** (Windows app): the most convenient option. Built-in
   Steam Workshop browser, resolves collections locally via the official
   Steam Web API, downloads/configures SteamCMD automatically, installs mods
-  in batches with retries, detects updates.
+  in batches with retries, detects updates. Shows each mod's preview image,
+  tags, description and its required mods and DLC, and keeps a local library
+  so those details remain available after a mod is removed from the Workshop
+  (exportable as Markdown). Updates itself; a beta channel is optional.
   Download: https://github.com/Vijabei/SteamWorkshopManager/releases/latest
   Source: https://github.com/Vijabei/SteamWorkshopManager
 - **Web generator** (any platform): paste a Steam Workshop collection URL,

@@ -35,7 +35,12 @@
                         <li><span role="img" aria-label="memo">📝</span> Organizes mods in the correct folders</li>
                         <li><span role="img" aria-label="broom">🧹</span> Optional cleanup of temporary files</li>
                         <li><span role="img" aria-label="stop button">⏹️</span> Full control: progress display and cancel at any time</li>
-                        <li><span role="img" aria-label="counterclockwise arrows">🔄</span> Keeps itself up to date - new versions install with one click</li>
+                        <li><span role="img" aria-label="framed picture">🖼️</span> Shows each mod's preview image, tags and full description, properly formatted</li>
+                        <li><span role="img" aria-label="link">🔗</span> Detects required mods and required DLC, with links straight into the built-in browser</li>
+                        <li><span role="img" aria-label="books">📚</span> Keeps a local library of every mod you installed, so details survive a mod being removed from the Workshop</li>
+                        <li><span role="img" aria-label="outbox tray">📤</span> Exports that library as Markdown files for your notes or a server wiki</li>
+                        <li><span role="img" aria-label="artist palette">🎨</span> Dark and light theme</li>
+                        <li><span role="img" aria-label="counterclockwise arrows">🔄</span> Keeps itself up to date - new versions install with one click, on a stable or beta channel</li>
                     </ul>
                 </div>
 
@@ -46,8 +51,9 @@
                         <li><strong>Install:</strong> download the zip from the
                             <a href="https://github.com/Vijabei/SteamWorkshopManager/releases/latest" target="_blank" rel="noopener">GitHub releases page</a>,
                             extract it and run <code>WorkshopManager.exe</code>.</li>
-                        <li><strong>Set up (once):</strong> on the "Mods &amp; Install" tab, click <em>Get SteamCMD</em>
-                            (or point to an existing <code>steamcmd.exe</code>) and choose the install folder of your game.</li>
+                        <li><strong>Set up (once):</strong> open <em>Settings...</em> in the bottom bar and click
+                            <em>Download it for me</em> to fetch SteamCMD (or point to an existing <code>steamcmd.exe</code>).
+                            Then choose the install folder of your game.</li>
                         <li><strong>Pick your mods:</strong> browse the Workshop on the "Workshop Browser" tab and click
                             <em>Add this collection / mod to list</em> - or simply paste a collection URL into the "Add mods" field.
                             Your Steam subscriptions can be collected the same way after logging in inside the browser tab.</li>
@@ -55,6 +61,9 @@
                             The app downloads everything in batches, retries failures and marks each mod as installed.</li>
                         <li><strong>Stay up to date:</strong> later, just add the same collection again -
                             already installed mods are skipped and available updates are shown.</li>
+                        <li><strong>Optional:</strong> click <em>Check requirements</em> to find out which mods need other
+                            mods or paid DLC. Steam only publishes that on each mod's own page, so select a few mods first
+                            if you do not want to check the whole list at once.</li>
                     </ol>
                 </div>
 
