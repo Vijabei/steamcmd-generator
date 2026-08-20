@@ -77,6 +77,13 @@ jobs:
             *.sample.*
             **/*.sample.php
 
+            # The setup wizard reports the PHP version, the available
+            # extensions and the state of the directories. That is useful
+            # while installing and needless exposure afterwards, so it is
+            # not published. Upload it by hand if the server ever needs
+            # diagnosing; it stays in the repository for fresh installs.
+            setup-check.php
+
             # Written on the server, must never be uploaded or removed
             **/logs/*
             !**/logs/.htaccess
