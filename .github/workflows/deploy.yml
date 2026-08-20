@@ -1,38 +1,98 @@
-name: Deploy to Test Server
+name: Deploy website
 
+# Pushing to main publishes the site.
+#
+# "Run workflow" lets you do a dry run first: it reports every file it would
+# upload or delete without touching the server. Worth doing after any change
+# to the exclude list below.
+# NOTE: the automatic trigger is added once the first dry run has been
+# reviewed. Until then this only runs when started by hand.
 on:
-  push:
-    branches:
-      - staging
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only report what would change, do not upload anything'
+        type: boolean
+        default: true
 
 jobs:
-  web-deploy:
+  deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    steps:
-    - name: Get Code
-      uses: actions/checkout@v4
 
-    - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        server-dir: /www/vijabei/test/  # Insert your FTP path here
-        dangerous-clean-slate: false
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/downloads/*.zip
-          **/feedback/*
-          !**/feedback/.htaccess
-          **/logs/*
-          !**/logs/.htaccess
-          **/*.log
-          google*.html
-          README.md
-          LICENSE.md
-          *.sample.*
-          **/*.sample.php
+    steps:
+      - name: Get the source
+        uses: actions/checkout@v4
+
+      # The target directory is a repository variable rather than a value in
+      # this file: the repository is public, and the path should not be part
+      # of it. No default on purpose - deploying to a guessed directory is
+      # worse than not deploying at all.
+      - name: Check the configuration
+        run: |
+          if [ -z "${{ vars.FTP_SERVER_DIR }}" ]; then
+            echo "::error::Repository variable FTP_SERVER_DIR is not set."
+            echo "Set it under Settings > Secrets and variables > Actions > Variables"
+            echo "to the directory the website lives in, for example /www/example/html/"
+            exit 1
+          fi
+          echo "Target directory: ${{ vars.FTP_SERVER_DIR }}"
+          echo "Protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}"
+
+      - name: Deploy over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          # Plain "ftp" sends the password in the clear. Override the
+          # FTP_PROTOCOL variable only if the host cannot do FTPS.
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
+
+          local-dir: ./
+          server-dir: ${{ vars.FTP_SERVER_DIR }}
+          dry-run: ${{ inputs.dry_run || false }}
+
+          # Never wipe the target directory. The action tracks what it
+          # uploaded and removes only files it placed there itself.
+          dangerous-clean-slate: false
+
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+
+            # Repository furniture, not part of the website
+            README.md
+            *.sample.*
+            **/*.sample.php
+
+            # Written on the server, must never be uploaded or removed
+            **/logs/*
+            !**/logs/.htaccess
+            **/cache/*
+            !**/cache/.htaccess
+            **/*.log
+
+            # Belongs to the deployment, not to the repository. These are not
+            # in git anyway; listing them keeps the action from ever touching
+            # the copies that live on the server.
+            **/config.php
+            robots.txt
+            sitemap.xml
+            google*.html
+
+            # The app zip comes from the SteamWorkshopManager releases
+            **/downloads/*.zip
+
+      - name: Summary
+        if: success()
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "### Dry run finished" >> $GITHUB_STEP_SUMMARY
+            echo "Nothing was changed on the server. Check the log above for what would happen." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### Website deployed" >> $GITHUB_STEP_SUMMARY
+            echo "Target: \`${{ vars.FTP_SERVER_DIR }}\`" >> $GITHUB_STEP_SUMMARY
+          fi
