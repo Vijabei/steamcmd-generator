@@ -22,7 +22,7 @@ return [
     // ---------------------------------------------------------------
 
     /** Version of this website, shown in the footer. */
-    'site_version' => '2.5',
+    'site_version' => '2.6',
 
     /**
      * Version of the Windows app, as "major.minor".
@@ -32,7 +32,7 @@ return [
      * whenever GitHub cannot be reached, this is what visitors see. Keep it
      * updated anyway.
      */
-    'app_version' => '1.2',
+    'app_version' => '1.3',
 
     // ---------------------------------------------------------------
     // Links
@@ -66,8 +66,9 @@ return [
         'title' => '&#127881; Version {site_version} - Workshop Manager {app_version} is out',
         'intro' => 'Hey gaming fans! What\'s new:',
         'items' => [
-            '<b>Workshop Manager {app_version} is here</b>, and it is no longer a beta. Every mod now shows its preview image, tags and full description - properly formatted instead of raw markup - and required mods and DLC are listed with links you can follow.',
-            '<b>Your mod details no longer vanish.</b> The app keeps a local library of every mod it ever installed, so when something is taken down from the Workshop you still have its description and preview. You can export the whole library as Markdown.',
+            '<b>Workshop Manager {app_version} is out</b>, with two new options for people who keep mods rather than just play them. Both are off by default, because both are wrong when you are simply feeding a game.',
+            '<b>Name folders after the mod</b>, not after its Workshop number. Much easier to find your way around a collection of kept mods - just leave it on the number when you install for a game, because that is what games expect.',
+            '<b>Keep the publication date on the files.</b> Downloading normally stamps everything with today. This puts back the date the version was actually published on the Workshop, and both dates are now noted for every mod as well.',
             '<b>Already running an older version?</b> Just start the app - it offers the update by itself and installs it with one click. Nothing to download by hand.',
             '<b>Want the new stuff early from now on?</b> There is a beta channel in the settings. Switch it on once and future test builds arrive the same way.',
             'Found a problem or have an idea? Open an issue on GitHub - for the app under <a href="https://github.com/Vijabei/SteamWorkshopManager/issues" target="_blank" rel="noopener">SteamWorkshopManager</a>, for this site and the browser script under <a href="https://github.com/Vijabei/steamcmd-generator/issues" target="_blank" rel="noopener">steamcmd-generator</a>. You will get a notification when it is answered.',
@@ -88,6 +89,7 @@ return [
             'Shows mod titles, sizes and update status - and skips what is already installed',
             'Shows each mod\'s preview, description and required mods or DLC',
             'Keeps a local library, so mod details survive being removed from the Workshop',
+            'Optional archiving mode: folders named after the mod, files dated by the Workshop',
             'Updates itself: new versions are offered and installed with one click',
             'Free and open source (Apache 2.0)',
         ],
@@ -97,6 +99,6 @@ return [
     // Footer
     // ---------------------------------------------------------------
 
-    'changelog' => 'Latest: Workshop Manager {app_version} - mod previews, descriptions and requirements, a mod library that survives Workshop removals, and a selectable beta channel.',
+    'changelog' => 'Latest: Workshop Manager {app_version} - optional archiving mode with folders named after the mod and files dated by the Workshop, plus previews, descriptions and requirements for every mod.',
 
 ];
