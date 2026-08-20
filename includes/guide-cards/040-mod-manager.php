@@ -19,7 +19,7 @@
                     <div class="notice-box info">
                         <h4>💡 Open Source</h4>
                         <p>The Workshop Mod Manager is open source. You can review the code, report issues and
-                        contribute on <a href="https://github.com/Vijabei/SteamWorkshopManager" target="_blank" rel="noopener">GitHub</a>.</p>
+                        contribute on <a href="<?php echo htmlspecialchars($release['links']['repo']); ?>" target="_blank" rel="noopener">GitHub</a>.</p>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                     <h3>Quick walkthrough</h3>
                     <ol>
                         <li><strong>Install:</strong> download the zip from the
-                            <a href="https://github.com/Vijabei/SteamWorkshopManager/releases/latest" target="_blank" rel="noopener">GitHub releases page</a>,
+                            <a href="<?php echo htmlspecialchars($release['links']['latest']); ?>" target="_blank" rel="noopener">GitHub releases page</a>,
                             extract it and run <code>WorkshopManager.exe</code>.</li>
                         <li><strong>Set up (once):</strong> open <em>Settings...</em> in the bottom bar and click
                             <em>Download it for me</em> to fetch SteamCMD (or point to an existing <code>steamcmd.exe</code>).
@@ -79,7 +79,7 @@
                     <div class="notice-box">
                         <h4>Getting Started</h4>
                         <p>Grab the latest version from the
-                        <a href="https://github.com/Vijabei/SteamWorkshopManager/releases/latest" target="_blank" rel="noopener">GitHub releases page</a>
+                        <a href="<?php echo htmlspecialchars($release['links']['latest']); ?>" target="_blank" rel="noopener">GitHub releases page</a>
                         or from our <a href="download-tools.php#workshop-manager">download page</a>, extract the zip and run
                         <code>WorkshopManager.exe</code>. SteamCMD is <strong>not</strong> required upfront - the app can download it for you.</p>
                     </div>

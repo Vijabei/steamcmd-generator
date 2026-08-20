@@ -14,17 +14,12 @@ include 'includes/header.php';
 
 <!-- Workshop Manager Announcement -->
 <div class="card announcement">
-    <h2>Workshop Manager 1.2</h2>
-    <p>A complete mod manager - browse the Steam Workshop, pick a collection and install everything with one click. No command files needed, and it keeps itself up to date.</p>
+    <h2><?php echo $release['announcement']['title']; ?></h2>
+    <p><?php echo $release['announcement']['lead']; ?></p>
     <ul class="feature-list">
-        <li>Built-in Steam Workshop browser - import collections and your subscribed items directly</li>
-        <li>Resolves collections locally via the official Steam Web API (nested collections included)</li>
-        <li>One-click SteamCMD setup and reliable batched downloads with retries</li>
-        <li>Shows mod titles, sizes and update status - and skips what is already installed</li>
-        <li>Shows each mod's preview, description and required mods or DLC</li>
-        <li>Keeps a local library, so mod details survive being removed from the Workshop</li>
-        <li>Updates itself: new versions are offered and installed with one click</li>
-        <li>Free and open source (Apache 2.0)</li>
+<?php foreach ($release['announcement']['items'] as $item): ?>
+        <li><?php echo $item; ?></li>
+<?php endforeach; ?>
     </ul>
     <div class="button-group">
         <a href="./pages/download-tools.php#workshop-manager" class="btn">Get Workshop Manager</a>

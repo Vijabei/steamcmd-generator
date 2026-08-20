@@ -5,8 +5,8 @@
     <footer class="site-footer">
         <div class="container">
             <p>&copy; <?php echo date('Y'); ?> SoftKnight - softknight.de</p>
-            <p class="version">Version 2.5</p>
-            <p class="changelog">Latest: Workshop Manager 1.2 - mod previews, descriptions and requirements, a mod library that survives Workshop removals, and a selectable beta channel.</p>
+            <p class="version">Version <?php echo htmlspecialchars($release['site_version']); ?></p>
+            <p class="changelog"><?php echo $release['changelog']; ?></p>
             <p class="status">Found a bug or missing a guide? Use the feedback form on the FAQ page - please include contact info for a reply.</p>
         </div>
     </footer>

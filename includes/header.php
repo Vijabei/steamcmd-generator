@@ -18,6 +18,9 @@ if (empty($_SESSION['csrf_token'])) {
 
 require_once 'config.php';
 
+// Release content (versions, banner, links) - one file drives them all
+require_once __DIR__ . '/content/loader.php';
+
 // Canonical URL (base comes from the deployment config)
 $canonicalUrl = BASE_URL . strtok($_SERVER['REQUEST_URI'], '?');
 
@@ -58,7 +61,7 @@ $pageDescription = defined('PAGE_DESCRIPTION') ? PAGE_DESCRIPTION : SITE_DESCRIP
     <main class="container">
     <div class="warning">
       <div class="warning-header">
-        <strong>&#127881; Version 2.5 - Workshop Manager 1.2 is out</strong>
+        <strong><?php echo $release['banner']['title']; ?></strong>
         <button class="collapse-toggle" aria-expanded="true" aria-controls="warning-content">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron-icon">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -66,13 +69,11 @@ $pageDescription = defined('PAGE_DESCRIPTION') ? PAGE_DESCRIPTION : SITE_DESCRIP
         </button>
       </div>
 <div class="warning-content" id="warning-content">
-    <p>Hey gaming fans! What's new:</p>
+    <p><?php echo $release['banner']['intro']; ?></p>
     <ul class="warning-list">
-        <li><b>Workshop Manager 1.2 is here</b>, and it is no longer a beta. Every mod now shows its preview image, tags and full description - properly formatted instead of raw markup - and required mods and DLC are listed with links you can follow.</li>
-        <li><b>Your mod details no longer vanish.</b> The app keeps a local library of every mod it ever installed, so when something is taken down from the Workshop you still have its description and preview. You can export the whole library as Markdown.</li>
-        <li><b>Already running 1.1?</b> Just start the app - it offers the update by itself and installs it with one click. Nothing to download by hand.</li>
-        <li><b>Want the new stuff early from now on?</b> There is a beta channel in the settings. Switch it on once and future test builds arrive the same way.</li>
-        <li>Found a problem? Please use the feedback form and include your contact info so I can get back to you!</li>
+<?php foreach ($release['banner']['items'] as $item): ?>
+        <li><?php echo $item; ?></li>
+<?php endforeach; ?>
     </ul>
 </div>
     </div>

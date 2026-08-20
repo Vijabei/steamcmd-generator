@@ -7,6 +7,10 @@ feedback/*
 !feedback/.htaccess
 *.log
 
+# Cached API responses - regenerated at runtime
+cache/*
+!cache/.htaccess
+
 # Per-deployment configuration (copy the .sample files and adjust)
 includes/config.php
 sitemap.xml

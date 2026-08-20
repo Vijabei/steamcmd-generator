@@ -11,7 +11,7 @@ include '../includes/header.php';
 
     <!-- Workshop Manager Section -->
     <div class="card" id="workshop-manager">
-        <h2>Workshop Manager 1.2</h2>
+        <h2>Workshop Manager <?php echo htmlspecialchars($release['app_version']); ?></h2>
         <p>The complete mod manager for Steam Workshop content - browse, pick and install without touching a command line:</p>
         <div class="tool-features">
             <div class="feature">
@@ -36,7 +36,7 @@ include '../includes/header.php';
             </div>
         </div>
         <div class="download-section">
-            <a href="https://github.com/Vijabei/SteamWorkshopManager/releases/latest" target="_blank" rel="noopener" class="btn">
+            <a href="<?php echo htmlspecialchars($release['links']['latest']); ?>" target="_blank" rel="noopener" class="btn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>

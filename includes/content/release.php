@@ -1,0 +1,94 @@
+<?php
+/**
+ * Everything that changes when a release ships.
+ *
+ * This is the only file you need to edit for a new version. The banner, the
+ * footer, the announcement on the front page and the download page all read
+ * from here, so a version number cannot go stale in one corner of the site
+ * while being current in another.
+ *
+ * Placeholders: write {site_version} and {app_version} instead of repeating
+ * the numbers. They are substituted everywhere, including inside the texts.
+ *
+ * The texts are rendered as HTML so they can carry links and bold. They are
+ * site content written by the operator, never user input - do not put anything
+ * here that came from a visitor.
+ */
+
+return [
+
+    // ---------------------------------------------------------------
+    // Versions
+    // ---------------------------------------------------------------
+
+    /** Version of this website, shown in the footer. */
+    'site_version' => '2.5',
+
+    /**
+     * Version of the Windows app, as "major.minor".
+     *
+     * This is the fallback. The live value is read from the GitHub releases
+     * API and cached, so it stays right even if this file is forgotten - but
+     * whenever GitHub cannot be reached, this is what visitors see. Keep it
+     * updated anyway.
+     */
+    'app_version' => '1.2',
+
+    // ---------------------------------------------------------------
+    // Links
+    // ---------------------------------------------------------------
+
+    'links' => [
+        'repo'     => 'https://github.com/Vijabei/SteamWorkshopManager',
+        'releases' => 'https://github.com/Vijabei/SteamWorkshopManager/releases',
+        'latest'   => 'https://github.com/Vijabei/SteamWorkshopManager/releases/latest',
+
+        /**
+         * "owner/repo" for the releases API used to read the current version.
+         * Leave empty to switch the lookup off and always use 'app_version'.
+         */
+        'api_repo' => 'Vijabei/SteamWorkshopManager',
+    ],
+
+    // ---------------------------------------------------------------
+    // Announcement banner, shown at the top of every page
+    // ---------------------------------------------------------------
+
+    'banner' => [
+        'title' => '&#127881; Version {site_version} - Workshop Manager {app_version} is out',
+        'intro' => 'Hey gaming fans! What\'s new:',
+        'items' => [
+            '<b>Workshop Manager {app_version} is here</b>, and it is no longer a beta. Every mod now shows its preview image, tags and full description - properly formatted instead of raw markup - and required mods and DLC are listed with links you can follow.',
+            '<b>Your mod details no longer vanish.</b> The app keeps a local library of every mod it ever installed, so when something is taken down from the Workshop you still have its description and preview. You can export the whole library as Markdown.',
+            '<b>Already running an older version?</b> Just start the app - it offers the update by itself and installs it with one click. Nothing to download by hand.',
+            '<b>Want the new stuff early from now on?</b> There is a beta channel in the settings. Switch it on once and future test builds arrive the same way.',
+            'Found a problem? Please use the feedback form and include your contact info so I can get back to you!',
+        ],
+    ],
+
+    // ---------------------------------------------------------------
+    // Announcement card on the front page
+    // ---------------------------------------------------------------
+
+    'announcement' => [
+        'title' => 'Workshop Manager {app_version}',
+        'lead'  => 'A complete mod manager - browse the Steam Workshop, pick a collection and install everything with one click. No command files needed, and it keeps itself up to date.',
+        'items' => [
+            'Built-in Steam Workshop browser - import collections and your subscribed items directly',
+            'Resolves collections locally via the official Steam Web API (nested collections included)',
+            'One-click SteamCMD setup and reliable batched downloads with retries',
+            'Shows mod titles, sizes and update status - and skips what is already installed',
+            'Shows each mod\'s preview, description and required mods or DLC',
+            'Keeps a local library, so mod details survive being removed from the Workshop',
+            'Updates itself: new versions are offered and installed with one click',
+            'Free and open source (Apache 2.0)',
+        ],
+    ],
+
+    // ---------------------------------------------------------------
+    // Footer
+    // ---------------------------------------------------------------
+
+    'changelog' => 'Latest: Workshop Manager {app_version} - mod previews, descriptions and requirements, a mod library that survives Workshop removals, and a selectable beta channel.',
+
+];
