@@ -29,14 +29,22 @@ jobs:
       # of it. No default on purpose - deploying to a guessed directory is
       # worse than not deploying at all.
       - name: Check the configuration
+        id: config
         run: |
-          if [ -z "${{ vars.FTP_SERVER_DIR }}" ]; then
+          dir="${{ vars.FTP_SERVER_DIR }}"
+          if [ -z "$dir" ]; then
             echo "::error::Repository variable FTP_SERVER_DIR is not set."
             echo "Set it under Settings > Secrets and variables > Actions > Variables"
             echo "to the directory the website lives in, for example /www/example/html/"
             exit 1
           fi
-          echo "Target directory: ${{ vars.FTP_SERVER_DIR }}"
+
+          # The action rejects a directory without a trailing slash, which is
+          # easy to forget when entering the variable.
+          case "$dir" in */) ;; *) dir="$dir/" ;; esac
+
+          echo "dir=$dir" >> $GITHUB_OUTPUT
+          echo "Target directory: $dir"
           echo "Protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}"
 
       - name: Deploy over FTP
@@ -51,7 +59,7 @@ jobs:
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
 
           local-dir: ./
-          server-dir: ${{ vars.FTP_SERVER_DIR }}
+          server-dir: ${{ steps.config.outputs.dir }}
           dry-run: ${{ inputs.dry_run || false }}
 
           # Never wipe the target directory. The action tracks what it
@@ -94,5 +102,5 @@ jobs:
             echo "Nothing was changed on the server. Check the log above for what would happen." >> $GITHUB_STEP_SUMMARY
           else
             echo "### Website deployed" >> $GITHUB_STEP_SUMMARY
-            echo "Target: \`${{ vars.FTP_SERVER_DIR }}\`" >> $GITHUB_STEP_SUMMARY
+            echo "Target: \`${{ steps.config.outputs.dir }}\`" >> $GITHUB_STEP_SUMMARY
           fi
