@@ -14,13 +14,14 @@ include 'includes/header.php';
 
 <!-- Workshop Manager Announcement -->
 <div class="card announcement">
-    <h2>NEW: Workshop Manager 1.0 released</h2>
-    <p>The Workshop Manager is now a complete mod manager - browse the Steam Workshop, pick a collection and install everything with one click. No command files needed anymore!</p>
+    <h2>Workshop Manager 1.1</h2>
+    <p>A complete mod manager - browse the Steam Workshop, pick a collection and install everything with one click. No command files needed, and it keeps itself up to date.</p>
     <ul class="feature-list">
         <li>Built-in Steam Workshop browser - import collections and your subscribed items directly</li>
         <li>Resolves collections locally via the official Steam Web API (nested collections included)</li>
         <li>One-click SteamCMD setup and reliable batched downloads with retries</li>
         <li>Shows mod titles, sizes and update status - and skips what is already installed</li>
+        <li>Updates itself: new versions are offered and installed with one click</li>
         <li>Free and open source (Apache 2.0)</li>
     </ul>
     <div class="button-group">

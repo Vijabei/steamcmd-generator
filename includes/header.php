@@ -58,7 +58,7 @@ $pageDescription = defined('PAGE_DESCRIPTION') ? PAGE_DESCRIPTION : SITE_DESCRIP
     <main class="container">
     <div class="warning">
       <div class="warning-header">
-        <strong>&#127881; Version 2.3 - Workshop Manager 1.0 released!</strong>
+        <strong>&#127881; Version 2.4 - the app keeps itself up to date now</strong>
         <button class="collapse-toggle" aria-expanded="true" aria-controls="warning-content">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron-icon">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -66,12 +66,11 @@ $pageDescription = defined('PAGE_DESCRIPTION') ? PAGE_DESCRIPTION : SITE_DESCRIP
         </button>
       </div>
 <div class="warning-content" id="warning-content">
-    <p>Hey gaming fans! Big update this time:</p>
+    <p>Hey gaming fans! What's new:</p>
     <ul class="warning-list">
-        <li>Workshop Manager 1.0 is out: it now has a built-in workshop browser and resolves collections on its own - no more copying command files around. It is open source on <a href="https://github.com/Vijabei/SteamWorkshopManager" target="_blank" rel="noopener">GitHub</a>.</li>
-        <li>The command generator on this site now uses the official Steam Web API - more reliable, and nested collections finally work too.</li>
-        <li>Lots of small fixes across the site (broken links, mobile layout, guide navigation).</li>
-        <li>New: themes! Pick Light, Dark or the new Steam look in the navigation - your choice is remembered.</li>
+        <li><b>Workshop Manager 1.1:</b> the app now looks for new versions itself and installs them with one click. No more hunting for download links.</li>
+        <li><b>New licence: Apache 2.0</b> instead of CC BY-NC. In plain words, commercial use is allowed now too - which matters if you run a rented game server. The code stays free and open on <a href="https://github.com/Vijabei/SteamWorkshopManager" target="_blank" rel="noopener">GitHub</a>.</li>
+        <li><b>Want to test the next version?</b> Workshop Manager 1.2 is in beta: mod descriptions are finally rendered instead of showing raw markup, preview images and requirements are shown per mod, and a mod library keeps your collection's details even when a mod disappears from the Workshop. Grab it once from the <a href="https://github.com/Vijabei/SteamWorkshopManager/releases" target="_blank" rel="noopener">releases page</a> - after that it can stay on the beta channel by itself.</li>
         <li>Found a problem? Please use the feedback form and include your contact info so I can get back to you!</li>
     </ul>
 </div>
