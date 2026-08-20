@@ -145,9 +145,17 @@ main {
 
 .cards-slider {
     display: flex;
+    /* Only the slide is animated. Transitioning the height as well left it
+       stuck at the first card's value, and animating a 2000px box is janky
+       anyway - it snaps to the new card's height instead. */
     transition: transform 0.5s ease;
     width: 100%;
     align-items: flex-start;    /* Verhindert das Strecken der Cards */
+
+    /* The height is set from JS to the card on screen. Cards off to the side
+       are taller or shorter than it, so they have to be clipped here as well
+       - the container alone only clips sideways. */
+    overflow: hidden;
 }
 
 /* Responsive adjustments */

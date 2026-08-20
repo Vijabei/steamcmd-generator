@@ -45,6 +45,9 @@ class GuideNavigation {
     bindEvents() {
         window.addEventListener('hashchange', () => this.handleHash());
 
+        // A card's height changes with the window width
+        window.addEventListener('resize', () => this.fitHeightToCard());
+
         document.addEventListener('keydown', (e) => {
             // Don't hijack arrow keys while typing in a form field
             const tag = document.activeElement?.tagName;
@@ -53,6 +56,18 @@ class GuideNavigation {
             if (e.key === 'ArrowRight') this.nextCard();
             if (e.key === 'ArrowLeft') this.previousCard();
         });
+    }
+
+    /**
+     * The cards sit side by side in a flex row, so the row is always as tall
+     * as the tallest of them. Without this the page keeps the height of the
+     * longest card no matter which one is on screen, and every shorter card
+     * is followed by hundreds of pixels of empty space with the taller
+     * neighbours showing through it.
+     */
+    fitHeightToCard(index = this.currentIndex) {
+        const card = this.cards[index];
+        if (card) this.slider.style.height = card.offsetHeight + 'px';
     }
 
     showCard(index) {
@@ -66,6 +81,7 @@ class GuideNavigation {
         this.slider.style.transform = `translateX(-${index * 100}%)`;
         this.currentIndex = index;
 
+        this.fitHeightToCard(index);
         this.updateNavigationState();
 
         const cardId = this.cards[index].id;
@@ -101,10 +117,15 @@ class GuideNavigation {
             this.handleHash();
         }
 
+        this.fitHeightToCard();
+
         // Native anchor scrolling can kick in around the load event and
         // shift the container again - reset it once everything settled.
+        // Images have their size by then, so this is also the point at which
+        // the measured height is finally reliable.
         window.addEventListener('load', () => {
             this.container.scrollLeft = 0;
+            this.fitHeightToCard();
         });
     }
 

@@ -11,8 +11,9 @@
     overflow: hidden;
 }
 
+/* Left aligned like the FAQ, download and generator pages. Only the hero on
+   the front page is centred, and that one is a hero. */
 .guide-header {
-    text-align: center;
     margin-bottom: var(--spacing-xl);
 }
 
