@@ -42,12 +42,19 @@ function release_lookup_version($apiRepo, $fallback)
 
     // A fresh cache entry wins, even when it holds the fallback: that is the
     // negative cache that keeps a broken API from slowing every page down.
+    //
+    // Except when content/release.php names a higher version than the cache
+    // does. Editing that file is how a release is announced here, so a higher
+    // value there means a release just went out and the cached lookup is stale
+    // no matter how recent it is. Without this the site would advertise the
+    // previous version for up to an hour after every release.
     $cached = @file_get_contents($cacheFile);
     if ($cached !== false) {
         $entry = json_decode($cached, true);
         if (is_array($entry)
             && isset($entry['version'], $entry['checked'])
             && (time() - (int)$entry['checked']) < RELEASE_CACHE_TTL
+            && release_compare_versions($fallback, (string)$entry['version']) <= 0
         ) {
             return (string)$entry['version'];
         }
@@ -56,9 +63,13 @@ function release_lookup_version($apiRepo, $fallback)
     $version = release_fetch_version($apiRepo);
 
     if ($version === '') {
-        // Keep any older value rather than falling back to a stale file: a
-        // version we successfully read yesterday still beats the hardcoded one.
-        if (isset($entry['version']) && $entry['version'] !== '') {
+        // The API is unreachable. A version read successfully earlier beats
+        // the hardcoded one - but only while it is actually the newer of the
+        // two, otherwise a release announced in release.php would be hidden
+        // by a stale cache for as long as the API stays down.
+        if (isset($entry['version']) && $entry['version'] !== ''
+            && release_compare_versions((string)$entry['version'], $fallback) > 0
+        ) {
             $version = (string)$entry['version'];
         } else {
             $version = $fallback;
@@ -68,6 +79,24 @@ function release_lookup_version($apiRepo, $fallback)
     release_write_cache($cacheFile, $version);
 
     return $version;
+}
+
+/**
+ * Compares two "major.minor" version strings numerically.
+ * Returns a negative number, 0 or a positive number, like strcmp.
+ */
+function release_compare_versions($a, $b)
+{
+    $left  = array_map('intval', explode('.', trim($a)));
+    $right = array_map('intval', explode('.', trim($b)));
+
+    for ($i = 0; $i < max(count($left), count($right)); $i++) {
+        $l = isset($left[$i]) ? $left[$i] : 0;
+        $r = isset($right[$i]) ? $right[$i] : 0;
+        if ($l !== $r) return $l - $r;
+    }
+
+    return 0;
 }
 
 /**
