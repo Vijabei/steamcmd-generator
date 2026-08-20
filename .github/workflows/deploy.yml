@@ -5,9 +5,10 @@ name: Deploy website
 # "Run workflow" lets you do a dry run first: it reports every file it would
 # upload or delete without touching the server. Worth doing after any change
 # to the exclude list below.
-# NOTE: the automatic trigger is added once the first dry run has been
-# reviewed. Until then this only runs when started by hand.
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       dry_run:
