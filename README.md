@@ -1,6 +1,6 @@
 # Steam Workshop Collection Downloader (Website)
 
-![License](https://img.shields.io/badge/License-CC%20BY--NC-lightgrey.svg)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.x-777BB4)
 
 The website behind [softknight.de](https://softknight.de): a free web tool that turns Steam Workshop collections into ready-to-use SteamCMD download commands. Created by gamers for gamers.
@@ -92,7 +92,12 @@ A theme is a single CSS file in `css/themes/` that overrides the design tokens f
 
 ## License
 
-This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/) - free to use, adapt and share, but not for commercial purposes.
+Licensed under the [Apache License, Version 2.0](LICENSE) - free to use, modify and
+redistribute, including commercially, as long as the copyright and licence notices
+stay in place and changed files are marked as such.
+
+Earlier versions were published under CC BY-NC 4.0; copies received under that
+licence keep those rights.
 
 ## Support
 

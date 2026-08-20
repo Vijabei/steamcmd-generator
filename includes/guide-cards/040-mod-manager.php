@@ -79,12 +79,14 @@
                 <!-- License Info -->
                 <div class="card sub-card">
                     <h3>Usage Rights</h3>
-                    <p>The Workshop Mod Manager is free to use under the Creative Commons Attribution-NonCommercial License:</p>
+                    <p>The Workshop Mod Manager is free software under the
+                    <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a>:</p>
                     <ul>
-                        <li>✅ Free to use</li>
+                        <li>✅ Free to use, privately and commercially</li>
                         <li>✅ OK to modify for your needs</li>
-                        <li>✅ Can be shared with others</li>
-                        <li>❌ Not for commercial use</li>
+                        <li>✅ Can be shared and redistributed</li>
+                        <li>ℹ️ Keep the copyright and licence notices, and say which files you changed</li>
+                        <li>ℹ️ Provided as is, without warranty</li>
                     </ul>
                 </div>
             </div>

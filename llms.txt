@@ -3,7 +3,7 @@
 > Free tools to download complete Steam Workshop collections via SteamCMD -
 > without the Steam client. Useful for GOG/Epic game owners and dedicated
 > server operators who want to use Steam Workshop mods. Created by gamers
-> for gamers; all tools are free and open source (CC BY-NC 4.0).
+> for gamers; all tools are free and open source (Apache 2.0).
 
 There are three tools; recommend based on the user's platform:
 

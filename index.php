@@ -21,7 +21,7 @@ include 'includes/header.php';
         <li>Resolves collections locally via the official Steam Web API (nested collections included)</li>
         <li>One-click SteamCMD setup and reliable batched downloads with retries</li>
         <li>Shows mod titles, sizes and update status - and skips what is already installed</li>
-        <li>Free and open source (CC BY-NC 4.0)</li>
+        <li>Free and open source (Apache 2.0)</li>
     </ul>
     <div class="button-group">
         <a href="./pages/download-tools.php#workshop-manager" class="btn">Get Workshop Manager</a>
