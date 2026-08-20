@@ -28,8 +28,11 @@ function getFAQContent($file) {
     
     foreach ($faqFiles as $file):
         $faq = getFAQContent($file);
+        // "060-privacy-and-data-usage.txt" -> "privacy-and-data-usage", so
+        // single answers can be linked to directly.
+        $anchor = preg_replace('/^[0-9]+-/', '', basename($file, '.txt'));
     ?>
-        <div class="card">
+        <div class="card" id="<?php echo htmlspecialchars($anchor); ?>">
             <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
                 <h3 itemprop="name"><?php echo htmlspecialchars($faq['question']); ?></h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">

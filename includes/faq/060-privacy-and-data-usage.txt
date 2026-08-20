@@ -15,7 +15,12 @@ Privacy and Data Usage
 <p>These technical details are just for fixing bugs and get deleted quickly.</p>
 
 <p><b>What about the Workshop Manager app?</b></p>
-<p>The desktop app sends no data to this website at all. It only talks to the official Steam servers (Web API and SteamCMD) to resolve and download the mods you request.</p>
+<p>The desktop app sends no data to this website at all, and it has no analytics or telemetry of any kind. It talks to exactly two places:</p>
+<ul>
+    <li><b>Steam</b> - the official Web API, the workshop pages and SteamCMD, to resolve and download the mods you ask for. If you sign in to Steam inside the built-in browser, that session stays on your computer; the app never sees your credentials.</li>
+    <li><b>GitHub</b> - to check whether a newer version of the app exists, and to download it if you accept. This is a plain request for the public release list; nothing about you is sent along, and you can switch the check off in the settings.</li>
+</ul>
+<p>Everything the app stores - your settings, the mod library and the log files - stays on your own computer.</p>
 
 <p><b>How do I use your data?</b></p>
 <p>The data I collect helps me:</p>
